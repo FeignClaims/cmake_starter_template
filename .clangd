@@ -1,0 +1,27 @@
+Diagnostics:
+  ClangTidy:
+    Add: ["*"]
+    Remove:
+      [
+        abseil*,
+        altera*,
+        fuchsia*,
+        llvmlib*,
+        llvm-qualified-auto,
+        zircon*,
+        google-readability-todo,
+        readability-implicit-bool-conversion,
+        readability-qualified-auto,
+      ]
+    CheckOptions:
+      readability-identifier-length.IgnoredVariableNames: ch|_|id
+      readability-identifier-length.IgnoredParameterNames: ^[n]$|ch|_|id
+  UnusedIncludes: Strict
+Index:
+  Background: Build
+InlayHints:
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+Hover:
+  ShowAKA: Yes
