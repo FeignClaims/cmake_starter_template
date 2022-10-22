@@ -1,0 +1,20 @@
+digraph "project_warnings" {
+node [ fontsize = "12" ]
+    "node3" [ label = "project_warnings", shape = pentagon ];
+    "node1" [ label = "app_library", shape = octagon ];
+    "node1" -> "node3"  // app_library -> project_warnings
+    "node0" [ label = "app", shape = egg ];
+    "node0" -> "node1" [ style = dotted ] // app -> app_library
+    "node13" [ label = "test_app_library", shape = egg ];
+    "node13" -> "node1" [ style = dotted ] // test_app_library -> app_library
+    "node9" [ label = "lib", shape = octagon ];
+    "node9" -> "node3" [ style = dotted ] // lib -> project_warnings
+    "node17" [ label = "test_lib", shape = egg ];
+    "node17" -> "node9" [ style = dotted ] // test_lib -> lib
+    "node13" [ label = "test_app_library", shape = egg ];
+    "node13" -> "node3" [ style = dotted ] // test_app_library -> project_warnings
+    "node16" [ label = "test_header_only_lib", shape = egg ];
+    "node16" -> "node3" [ style = dotted ] // test_header_only_lib -> project_warnings
+    "node17" [ label = "test_lib", shape = egg ];
+    "node17" -> "node3" [ style = dotted ] // test_lib -> project_warnings
+}

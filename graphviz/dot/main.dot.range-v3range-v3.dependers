@@ -1,0 +1,8 @@
+digraph "range-v3::range-v3" {
+node [ fontsize = "12" ]
+    "node10" [ label = "range-v3::range-v3", shape = pentagon ];
+    "node9" [ label = "lib", shape = octagon ];
+    "node9" -> "node10" [ style = dotted ] // lib -> range-v3::range-v3
+    "node17" [ label = "test_lib", shape = egg ];
+    "node17" -> "node9" [ style = dotted ] // test_lib -> lib
+}

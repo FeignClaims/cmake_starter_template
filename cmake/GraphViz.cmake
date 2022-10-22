@@ -2,21 +2,21 @@
 # cmake-lint: disable=E1126,C0113
 function(graphviz)
   set(options
-      ENABLE_EXECUTABLES
-      ENABLE_STATIC_LIBS
-      ENABLE_SHARED_LIBS
-      ENABLE_MODULE_LIBS
-      ENABLE_INTERFACE_LIBS
-      ENABLE_OBJECT_LIBS
-      ENABLE_UNKNOWN_LIBS
-      ENABLE_EXTERNAL_LIBS
-      ENABLE_CUSTOM_TARGETS
-      ENABLE_GENERATE_PER_TARGET
-      ENABLE_GENERATE_DEPENDERS
+    ENABLE_EXECUTABLES
+    ENABLE_STATIC_LIBS
+    ENABLE_SHARED_LIBS
+    ENABLE_MODULE_LIBS
+    ENABLE_INTERFACE_LIBS
+    ENABLE_OBJECT_LIBS
+    ENABLE_UNKNOWN_LIBS
+    ENABLE_EXTERNAL_LIBS
+    ENABLE_CUSTOM_TARGETS
+    ENABLE_GENERATE_PER_TARGET
+    ENABLE_GENERATE_DEPENDERS
   )
-  set(one_value_args GRAPH_NAME GRAPH_HEADER NODE_PREFIX OUTPUT_DIRECTORY)
-  set(multi_value_args IGNORE_TARGETS)
-  cmake_parse_arguments(args "${options}" "${one_value_args}" "${multi_value_args}" ${ARGN})
+  set(one_valueargs GRAPH_NAME GRAPH_HEADER NODE_PREFIX OUTPUT_DIRECTORY)
+  set(multi_valueargs IGNORE_TARGETS)
+  cmake_parse_arguments(args "${options}" "${one_valueargs}" "${multi_valueargs}" ${ARGN})
 
   # _Set_default_value(<argument> <default_value>)
   #
@@ -43,20 +43,20 @@ function(graphviz)
     @ONLY
     CONTENT
     [[
-set(GRAPHVIZ_GRAPH_NAME [=[@_args_GRAPH_NAME@]=])
-set(GRAPHVIZ_GRAPH_HEADER [=[@_args_GRAPH_HEADER@]=])
-set(GRAPHVIZ_NODE_PREFIX [=[@_args_NODE_PREFIX@]=])
-set(GRAPHVIZ_EXECUTABLES [=[@_args_ENABLE_EXECUTABLES@]=])
-set(GRAPHVIZ_STATIC_LIBS [=[@_args_ENABLE_STATIC_LIBS@]=])
-set(GRAPHVIZ_MODULE_LIBS [=[@_args_ENABLE_MODULE_LIBS@]=])
-set(GRAPHVIZ_INTERFACE_LIBS [=[@_args_ENABLE_INTERFACE_LIBS@]=])
-set(GRAPHVIZ_OBJECT_LIBS [=[@_args_ENABLE_OBJECT_LIBS@]=])
-set(GRAPHVIZ_UNKNOWN_LIBS [=[@_args_ENABLE_UNKNOWN_LIBS@]=])
-set(GRAPHVIZ_EXTERNAL_LIBS [=[@_args_ENABLE_EXTERNAL_LIBS@]=])
-set(GRAPHVIZ_IGNORE_TARGETS [=[@_args_IGNORE_TARGETS@]=])
-set(GRAPHVIZ_CUSTOM_TARGETS [=[@_args_ENABLE_CUSTOM_TARGETS@]=])
-set(GRAPHVIZ_GENERATE_PER_TARGET [=[@_args_ENABLE_GENERATE_PER_TARGET@]=])
-set(GRAPHVIZ_GENERATE_DEPENDERS [=[@_args_ENABLE_GENERATE_DEPENDERS@]=])
+set(GRAPHVIZ_GRAPH_NAME [=[@args_GRAPH_NAME@]=])
+set(GRAPHVIZ_GRAPH_HEADER [=[@args_GRAPH_HEADER@]=])
+set(GRAPHVIZ_NODE_PREFIX [=[@args_NODE_PREFIX@]=])
+set(GRAPHVIZ_EXECUTABLES [=[@args_ENABLE_EXECUTABLES@]=])
+set(GRAPHVIZ_STATIC_LIBS [=[@args_ENABLE_STATIC_LIBS@]=])
+set(GRAPHVIZ_MODULE_LIBS [=[@args_ENABLE_MODULE_LIBS@]=])
+set(GRAPHVIZ_INTERFACE_LIBS [=[@args_ENABLE_INTERFACE_LIBS@]=])
+set(GRAPHVIZ_OBJECT_LIBS [=[@args_ENABLE_OBJECT_LIBS@]=])
+set(GRAPHVIZ_UNKNOWN_LIBS [=[@args_ENABLE_UNKNOWN_LIBS@]=])
+set(GRAPHVIZ_EXTERNAL_LIBS [=[@args_ENABLE_EXTERNAL_LIBS@]=])
+set(GRAPHVIZ_IGNORE_TARGETS [=[@args_IGNORE_TARGETS@]=])
+set(GRAPHVIZ_CUSTOM_TARGETS [=[@args_ENABLE_CUSTOM_TARGETS@]=])
+set(GRAPHVIZ_GENERATE_PER_TARGET [=[@args_ENABLE_GENERATE_PER_TARGET@]=])
+set(GRAPHVIZ_GENERATE_DEPENDERS [=[@args_ENABLE_GENERATE_DEPENDERS@]=])
 ]]
   )
 
@@ -100,17 +100,17 @@ endfunction()
 function(graphviz)
   include(CMakePrintHelpers)
   set(options
-      "ENABLE_EXECUTABLES\;ON\;Include executables from the generated graphs"
-      "ENABLE_STATIC_LIBS\;ON\;Include static libraries from the generated graphs"
-      "ENABLE_SHARED_LIBS\;ON\;Include shared libraries from the generated graphs"
-      "ENABLE_MODULE_LIBS\;ON\;Include module libraries from the generated graphs"
-      "ENABLE_INTERFACE_LIBS\;ON\;Include interface libraries from the generated graphs"
-      "ENABLE_OBJECT_LIBS\;ON\;Include object libraries from the generated graphs"
-      "ENABLE_UNKNOWN_LIBS\;ON\;Include unknown libraries from the generated graphs"
-      "ENABLE_EXTERNAL_LIBS\;ON\;Include external libraries from the generated graphs"
-      "ENABLE_CUSTOM_TARGETS\;OFF\;Include custom targets from the generated graphs"
-      "ENABLE_GENERATE_PER_TARGET\;ON\;generate per-target graphs `foo.dot.<target>`"
-      "ENABLE_GENERATE_DEPENDERS\;ON\;generate depender graphs `foo.dot.<target>.dependers`"
+    "ENABLE_EXECUTABLES\;ON\;Include executables from the generated graphs"
+    "ENABLE_STATIC_LIBS\;ON\;Include static libraries from the generated graphs"
+    "ENABLE_SHARED_LIBS\;ON\;Include shared libraries from the generated graphs"
+    "ENABLE_MODULE_LIBS\;ON\;Include module libraries from the generated graphs"
+    "ENABLE_INTERFACE_LIBS\;ON\;Include interface libraries from the generated graphs"
+    "ENABLE_OBJECT_LIBS\;ON\;Include object libraries from the generated graphs"
+    "ENABLE_UNKNOWN_LIBS\;ON\;Include unknown libraries from the generated graphs"
+    "ENABLE_EXTERNAL_LIBS\;ON\;Include external libraries from the generated graphs"
+    "ENABLE_CUSTOM_TARGETS\;OFF\;Include custom targets from the generated graphs"
+    "ENABLE_GENERATE_PER_TARGET\;ON\;generate per-target graphs `foo.dot.<target>`"
+    "ENABLE_GENERATE_DEPENDERS\;ON\;generate depender graphs `foo.dot.<target>.dependers`"
   )
 
   foreach(option ${options})
@@ -119,7 +119,7 @@ function(graphviz)
     list(GET option 2 option_description)
 
     if(DEFINED GRAPHVIZ_${option_name})
-      set(option_default GRAPHVIZ_${${option_name}})
+      set(option_default ${GRAPHVIZ_${option_name}})
     endif()
 
     if(${option_default})

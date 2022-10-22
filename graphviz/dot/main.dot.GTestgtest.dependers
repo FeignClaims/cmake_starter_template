@@ -1,0 +1,8 @@
+digraph "GTest::gtest" {
+node [ fontsize = "12" ]
+    "node15" [ label = "GTest::gtest", shape = pentagon ];
+    "node14" [ label = "GTest::gtest_main", shape = pentagon ];
+    "node14" -> "node15" [ style = dashed ] // GTest::gtest_main -> GTest::gtest
+    "node13" [ label = "test_app_library", shape = egg ];
+    "node13" -> "node14" [ style = dotted ] // test_app_library -> GTest::gtest_main
+}

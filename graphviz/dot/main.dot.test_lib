@@ -1,0 +1,30 @@
+digraph "test_lib" {
+node [ fontsize = "12" ]
+    "node17" [ label = "test_lib", shape = egg ];
+    "node14" [ label = "GTest::gtest_main", shape = pentagon ];
+    "node17" -> "node14" [ style = dotted ] // test_lib -> GTest::gtest_main
+    "node8" [ label = "header_only_lib", shape = pentagon ];
+    "node17" -> "node8" [ style = dotted ] // test_lib -> header_only_lib
+    "node4" [ label = "fmt::fmt", shape = pentagon ];
+    "node8" -> "node4" [ style = dashed ] // header_only_lib -> fmt::fmt
+    "node9" [ label = "lib", shape = octagon ];
+    "node17" -> "node9" [ style = dotted ] // test_lib -> lib
+    "node2" [ label = "project_options", shape = pentagon ];
+    "node9" -> "node2" [ style = dotted ] // lib -> project_options
+    "node3" [ label = "project_warnings", shape = pentagon ];
+    "node9" -> "node3" [ style = dotted ] // lib -> project_warnings
+    "node10" [ label = "range-v3::range-v3", shape = pentagon ];
+    "node9" -> "node10" [ style = dotted ] // lib -> range-v3::range-v3
+    "node11" [ label = "range-v3::concepts", shape = pentagon ];
+    "node10" -> "node11" [ style = dashed ] // range-v3::range-v3 -> range-v3::concepts
+    "node12" [ label = "range-v3::meta", shape = pentagon ];
+    "node11" -> "node12" [ style = dashed ] // range-v3::concepts -> range-v3::meta
+    "node12" [ label = "range-v3::meta", shape = pentagon ];
+    "node10" -> "node12" [ style = dashed ] // range-v3::range-v3 -> range-v3::meta
+    "node2" [ label = "project_options", shape = pentagon ];
+    "node17" -> "node2" [ style = dotted ] // test_lib -> project_options
+    "node3" [ label = "project_warnings", shape = pentagon ];
+    "node17" -> "node3" [ style = dotted ] // test_lib -> project_warnings
+    "node17" [ label = "test_lib", shape = egg ];
+    "node17" -> "node17"  // test_lib -> test_lib
+}

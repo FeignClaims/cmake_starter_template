@@ -1,0 +1,6 @@
+digraph "test_app_library" {
+node [ fontsize = "12" ]
+    "node13" [ label = "test_app_library", shape = egg ];
+    "node13" [ label = "test_app_library", shape = egg ];
+    "node13" -> "node13"  // test_app_library -> test_app_library
+}

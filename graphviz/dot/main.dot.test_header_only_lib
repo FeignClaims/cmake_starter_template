@@ -1,0 +1,16 @@
+digraph "test_header_only_lib" {
+node [ fontsize = "12" ]
+    "node16" [ label = "test_header_only_lib", shape = egg ];
+    "node14" [ label = "GTest::gtest_main", shape = pentagon ];
+    "node16" -> "node14" [ style = dotted ] // test_header_only_lib -> GTest::gtest_main
+    "node8" [ label = "header_only_lib", shape = pentagon ];
+    "node16" -> "node8" [ style = dotted ] // test_header_only_lib -> header_only_lib
+    "node4" [ label = "fmt::fmt", shape = pentagon ];
+    "node8" -> "node4" [ style = dashed ] // header_only_lib -> fmt::fmt
+    "node2" [ label = "project_options", shape = pentagon ];
+    "node16" -> "node2" [ style = dotted ] // test_header_only_lib -> project_options
+    "node3" [ label = "project_warnings", shape = pentagon ];
+    "node16" -> "node3" [ style = dotted ] // test_header_only_lib -> project_warnings
+    "node16" [ label = "test_header_only_lib", shape = egg ];
+    "node16" -> "node16"  // test_header_only_lib -> test_header_only_lib
+}

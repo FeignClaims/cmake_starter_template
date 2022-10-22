@@ -1,0 +1,6 @@
+digraph "range-v3::concepts" {
+node [ fontsize = "12" ]
+    "node11" [ label = "range-v3::concepts", shape = pentagon ];
+    "node12" [ label = "range-v3::meta", shape = pentagon ];
+    "node11" -> "node12" [ style = dashed ] // range-v3::concepts -> range-v3::meta
+}
