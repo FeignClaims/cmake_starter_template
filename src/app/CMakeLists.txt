@@ -31,3 +31,9 @@ target_link_libraries(app
   PRIVATE
   app_library
 )
+
+find_package(fmt CONFIG REQUIRED)
+target_link_system_libraries(app
+  PRIVATE
+  fmt::fmt
+)
