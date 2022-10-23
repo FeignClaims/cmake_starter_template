@@ -44,3 +44,6 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 .cache/
+
+# remove workflow for now
+.github/
