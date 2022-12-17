@@ -3,6 +3,12 @@ set(ENABLE_DEVELOPER_MODE ON CACHE BOOL "Enable 'developer mode'")
 
 set(ENABLE_CONAN_DEFAULT ON)
 
+# -----------------
+# for non-project
+set(ENABLE_CLANG_TIDY_DEVELOPER_DEFAULT OFF)
+set(ENABLE_CPPCHECK_DEVELOPER_DEFAULT OFF)
+
+# -----------------
 set(WARNINGS_AS_ERRORS_DEVELOPER_DEFAULT OFF)
 
 dynamic_project_options(
@@ -51,6 +57,7 @@ dynamic_project_options(
   -Wsign-conversion # warn on sign conversions
   -Wunused # warn on anything being unused
   -Wundef
+  -ftemplate-backtrace-limit=0
 
   GCC_WARNINGS
   -Wall
