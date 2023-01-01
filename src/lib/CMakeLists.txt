@@ -1,7 +1,7 @@
 add_library(lib)
 target_sources(lib
   PRIVATE
-  sort.cpp
+  src/sort.cpp
 )
 target_link_libraries(lib
   PRIVATE

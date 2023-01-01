@@ -4,7 +4,7 @@
 add_library(app_library)
 target_sources(app_library
   PRIVATE
-  fibonacci.cpp
+  src/fibonacci.cpp
 )
 target_link_libraries(app_library
   PUBLIC
@@ -25,7 +25,7 @@ endif()
 add_executable(app)
 target_sources(app
   PRIVATE
-  boostrap.cpp # just for main() function
+  src/boostrap.cpp # just for main() function
 )
 target_link_libraries(app
   PRIVATE
