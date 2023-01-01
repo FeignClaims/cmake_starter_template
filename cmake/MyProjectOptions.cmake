@@ -1,14 +1,13 @@
 include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptions.cmake)
-set(ENABLE_DEVELOPER_MODE ON CACHE BOOL "Enable 'developer mode'")
 
 set(ENABLE_CONAN_DEFAULT ON)
 
-# -----------------
-# for non-project
-set(ENABLE_CLANG_TIDY_DEVELOPER_DEFAULT OFF)
-set(ENABLE_CPPCHECK_DEVELOPER_DEFAULT OFF)
+# not supportted on my platform (MacOS Ventura, M1 2020)
+if(${CMAKE_CXX_COMPILER_ID} MATCHES "GNU")
+  set(ENABLE_SANITIZER_ADDRESS_DEFAULT OFF)
+  set(ENABLE_SANITIZER_UNDEFINED_BEHAVIOR_DEFAULT OFF)
+endif()
 
-# -----------------
 set(WARNINGS_AS_ERRORS_DEVELOPER_DEFAULT OFF)
 
 dynamic_project_options(
