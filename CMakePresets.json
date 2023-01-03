@@ -141,8 +141,8 @@
       "description": "Target Unix-like OS with the gcc compiler",
       "inherits": "conf-unixlike-common-developer",
       "cacheVariables": {
-        "CMAKE_C_COMPILER": "gcc-12",
-        "CMAKE_CXX_COMPILER": "g++-12"
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
       }
     },
     {
@@ -151,8 +151,8 @@
       "description": "Target Unix-like OS with the gcc compiler",
       "inherits": "conf-unixlike-common-user",
       "cacheVariables": {
-        "CMAKE_C_COMPILER": "gcc-12",
-        "CMAKE_CXX_COMPILER": "g++-12"
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
       }
     },
     {
