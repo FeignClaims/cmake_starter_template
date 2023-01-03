@@ -202,193 +202,193 @@
       "configuration": "MinSizeRel"
     },
     {
-      "name": "windows-msvc-debug-developer",
+      "name": "windows-msvc-developer-debug",
       "displayName": "Debug",
       "configurePreset": "windows-msvc-developer",
       "inherits": "build-common-debug"
     },
     {
-      "name": "windows-msvc-debug-user",
+      "name": "windows-msvc-user-debug",
       "displayName": "Debug",
       "configurePreset": "windows-msvc-user",
       "inherits": "build-common-debug"
     },
     {
-      "name": "windows-clang-debug-developer",
+      "name": "windows-clang-developer-debug",
       "displayName": "Debug",
       "configurePreset": "windows-clang-developer",
       "inherits": "build-common-debug"
     },
     {
-      "name": "windows-clang-debug-user",
+      "name": "windows-clang-user-debug",
       "displayName": "Debug",
       "configurePreset": "windows-clang-user",
       "inherits": "build-common-debug"
     },
     {
-      "name": "unixlike-gcc-debug-developer",
+      "name": "unixlike-gcc-developer-debug",
       "displayName": "Debug",
       "configurePreset": "unixlike-gcc-developer",
       "inherits": "build-common-debug"
     },
     {
-      "name": "unixlike-gcc-debug-user",
+      "name": "unixlike-gcc-user-debug",
       "displayName": "Debug",
       "configurePreset": "unixlike-gcc-user",
       "inherits": "build-common-debug"
     },
     {
-      "name": "unixlike-clang-debug-developer",
+      "name": "unixlike-clang-developer-debug",
       "displayName": "Debug",
       "configurePreset": "unixlike-clang-developer",
       "inherits": "build-common-debug"
     },
     {
-      "name": "unixlike-clang-debug-user",
+      "name": "unixlike-clang-user-debug",
       "displayName": "Debug",
       "configurePreset": "unixlike-clang-user",
       "inherits": "build-common-debug"
     },
     {
-      "name": "windows-msvc-release-developer",
+      "name": "windows-msvc-developer-release",
       "displayName": "Release",
       "configurePreset": "windows-msvc-developer",
       "inherits": "build-common-release"
     },
     {
-      "name": "windows-msvc-release-user",
+      "name": "windows-msvc-user-release",
       "displayName": "Release",
       "configurePreset": "windows-msvc-user",
       "inherits": "build-common-release"
     },
     {
-      "name": "windows-clang-release-developer",
+      "name": "windows-clang-developer-release",
       "displayName": "Release",
       "configurePreset": "windows-clang-developer",
       "inherits": "build-common-release"
     },
     {
-      "name": "windows-clang-release-user",
+      "name": "windows-clang-user-release",
       "displayName": "Release",
       "configurePreset": "windows-clang-user",
       "inherits": "build-common-release"
     },
     {
-      "name": "unixlike-gcc-release-developer",
+      "name": "unixlike-gcc-developer-release",
       "displayName": "Release",
       "configurePreset": "unixlike-gcc-developer",
       "inherits": "build-common-release"
     },
     {
-      "name": "unixlike-gcc-release-user",
+      "name": "unixlike-gcc-user-release",
       "displayName": "Release",
       "configurePreset": "unixlike-gcc-user",
       "inherits": "build-common-release"
     },
     {
-      "name": "unixlike-clang-release-developer",
+      "name": "unixlike-clang-developer-release",
       "displayName": "Release",
       "configurePreset": "unixlike-clang-developer",
       "inherits": "build-common-release"
     },
     {
-      "name": "unixlike-clang-release-user",
+      "name": "unixlike-clang-user-release",
       "displayName": "Release",
       "configurePreset": "unixlike-clang-user",
       "inherits": "build-common-release"
     },
     {
-      "name": "windows-msvc-relwithdebinfo-developer",
+      "name": "windows-msvc-developer-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "windows-msvc-developer",
       "inherits": "build-common-relwithdebinfo"
     },
     {
-      "name": "windows-msvc-relwithdebinfo-user",
+      "name": "windows-msvc-user-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "windows-msvc-user",
       "inherits": "build-common-relwithdebinfo"
     },
     {
-      "name": "windows-clang-relwithdebinfo-developer",
+      "name": "windows-clang-developer-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "windows-clang-developer",
       "inherits": "build-common-relwithdebinfo"
     },
     {
-      "name": "windows-clang-relwithdebinfo-user",
+      "name": "windows-clang-user-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "windows-clang-user",
       "inherits": "build-common-relwithdebinfo"
     },
     {
-      "name": "unixlike-gcc-relwithdebinfo-developer",
+      "name": "unixlike-gcc-developer-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "unixlike-gcc-developer",
       "inherits": "build-common-relwithdebinfo"
     },
     {
-      "name": "unixlike-gcc-relwithdebinfo-user",
+      "name": "unixlike-gcc-user-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "unixlike-gcc-user",
       "inherits": "build-common-relwithdebinfo"
     },
     {
-      "name": "unixlike-clang-relwithdebinfo-developer",
+      "name": "unixlike-clang-developer-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "unixlike-clang-developer",
       "inherits": "build-common-relwithdebinfo"
     },
     {
-      "name": "unixlike-clang-relwithdebinfo-user",
+      "name": "unixlike-clang-user-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "unixlike-clang-user",
       "inherits": "build-common-relwithdebinfo"
     },
     {
-      "name": "windows-msvc-minsizerel-developer",
+      "name": "windows-msvc-developer-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "windows-msvc-developer",
       "inherits": "build-common-minsizerel"
     },
     {
-      "name": "windows-msvc-minsizerel-user",
+      "name": "windows-msvc-user-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "windows-msvc-user",
       "inherits": "build-common-minsizerel"
     },
     {
-      "name": "windows-clang-minsizerel-developer",
+      "name": "windows-clang-developer-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "windows-clang-developer",
       "inherits": "build-common-minsizerel"
     },
     {
-      "name": "windows-clang-minsizerel-user",
+      "name": "windows-clang-user-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "windows-clang-user",
       "inherits": "build-common-minsizerel"
     },
     {
-      "name": "unixlike-gcc-minsizerel-developer",
+      "name": "unixlike-gcc-developer-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "unixlike-gcc-developer",
       "inherits": "build-common-minsizerel"
     },
     {
-      "name": "unixlike-gcc-minsizerel-user",
+      "name": "unixlike-gcc-user-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "unixlike-gcc-user",
       "inherits": "build-common-minsizerel"
     },
     {
-      "name": "unixlike-clang-minsizerel-developer",
+      "name": "unixlike-clang-developer-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "unixlike-clang-developer",
       "inherits": "build-common-minsizerel"
     },
     {
-      "name": "unixlike-clang-minsizerel-user",
+      "name": "unixlike-clang-user-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "unixlike-clang-user",
       "inherits": "build-common-minsizerel"
@@ -436,193 +436,193 @@
       "configuration": "MinSizeRel"
     },
     {
-      "name": "windows-msvc-debug-developer",
+      "name": "windows-msvc-developer-debug",
       "displayName": "msvc Debug",
       "configurePreset": "windows-msvc-developer",
       "inherits": "test-common-debug"
     },
     {
-      "name": "windows-msvc-debug-user",
+      "name": "windows-msvc-user-debug",
       "displayName": "msvc Debug",
       "configurePreset": "windows-msvc-user",
       "inherits": "test-common-debug"
     },
     {
-      "name": "windows-clang-debug-developer",
+      "name": "windows-clang-developer-debug",
       "displayName": "Debug",
       "configurePreset": "windows-clang-developer",
       "inherits": "test-common-debug"
     },
     {
-      "name": "windows-clang-debug-user",
+      "name": "windows-clang-user-debug",
       "displayName": "Debug",
       "configurePreset": "windows-clang-user",
       "inherits": "test-common-debug"
     },
     {
-      "name": "unixlike-gcc-debug-developer",
+      "name": "unixlike-gcc-developer-debug",
       "displayName": "Debug",
       "configurePreset": "unixlike-gcc-developer",
       "inherits": "test-common-debug"
     },
     {
-      "name": "unixlike-gcc-debug-user",
+      "name": "unixlike-gcc-user-debug",
       "displayName": "Debug",
       "configurePreset": "unixlike-gcc-user",
       "inherits": "test-common-debug"
     },
     {
-      "name": "unixlike-clang-debug-developer",
+      "name": "unixlike-clang-developer-debug",
       "displayName": "Debug",
       "configurePreset": "unixlike-clang-developer",
       "inherits": "test-common-debug"
     },
     {
-      "name": "unixlike-clang-debug-user",
+      "name": "unixlike-clang-user-debug",
       "displayName": "Debug",
       "configurePreset": "unixlike-clang-user",
       "inherits": "test-common-debug"
     },
     {
-      "name": "windows-msvc-release-developer",
+      "name": "windows-msvc-developer-release",
       "displayName": "Release",
       "configurePreset": "windows-msvc-developer",
       "inherits": "test-common-release"
     },
     {
-      "name": "windows-msvc-release-user",
+      "name": "windows-msvc-user-release",
       "displayName": "Release",
       "configurePreset": "windows-msvc-user",
       "inherits": "test-common-release"
     },
     {
-      "name": "windows-clang-release-developer",
+      "name": "windows-clang-developer-release",
       "displayName": "Release",
       "configurePreset": "windows-clang-developer",
       "inherits": "test-common-release"
     },
     {
-      "name": "windows-clang-release-user",
+      "name": "windows-clang-user-release",
       "displayName": "Release",
       "configurePreset": "windows-clang-user",
       "inherits": "test-common-release"
     },
     {
-      "name": "unixlike-gcc-release-developer",
+      "name": "unixlike-gcc-developer-release",
       "displayName": "Release",
       "configurePreset": "unixlike-gcc-developer",
       "inherits": "test-common-release"
     },
     {
-      "name": "unixlike-gcc-release-user",
+      "name": "unixlike-gcc-user-release",
       "displayName": "Release",
       "configurePreset": "unixlike-gcc-user",
       "inherits": "test-common-release"
     },
     {
-      "name": "unixlike-clang-release-developer",
+      "name": "unixlike-clang-developer-release",
       "displayName": "Release",
       "configurePreset": "unixlike-clang-developer",
       "inherits": "test-common-release"
     },
     {
-      "name": "unixlike-clang-release-user",
+      "name": "unixlike-clang-user-release",
       "displayName": "Release",
       "configurePreset": "unixlike-clang-user",
       "inherits": "test-common-release"
     },
     {
-      "name": "windows-msvc-relwithdebinfo-developer",
+      "name": "windows-msvc-developer-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "windows-msvc-developer",
       "inherits": "test-common-relwithdebinfo"
     },
     {
-      "name": "windows-msvc-relwithdebinfo-user",
+      "name": "windows-msvc-user-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "windows-msvc-user",
       "inherits": "test-common-relwithdebinfo"
     },
     {
-      "name": "windows-clang-relwithdebinfo-developer",
+      "name": "windows-clang-developer-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "windows-clang-developer",
       "inherits": "test-common-relwithdebinfo"
     },
     {
-      "name": "windows-clang-relwithdebinfo-user",
+      "name": "windows-clang-user-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "windows-clang-user",
       "inherits": "test-common-relwithdebinfo"
     },
     {
-      "name": "unixlike-gcc-relwithdebinfo-developer",
+      "name": "unixlike-gcc-developer-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "unixlike-gcc-developer",
       "inherits": "test-common-relwithdebinfo"
     },
     {
-      "name": "unixlike-gcc-relwithdebinfo-user",
+      "name": "unixlike-gcc-user-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "unixlike-gcc-user",
       "inherits": "test-common-relwithdebinfo"
     },
     {
-      "name": "unixlike-clang-relwithdebinfo-developer",
+      "name": "unixlike-clang-developer-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "unixlike-clang-developer",
       "inherits": "test-common-relwithdebinfo"
     },
     {
-      "name": "unixlike-clang-relwithdebinfo-user",
+      "name": "unixlike-clang-user-relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "configurePreset": "unixlike-clang-user",
       "inherits": "test-common-relwithdebinfo"
     },
     {
-      "name": "windows-msvc-minsizerel-developer",
+      "name": "windows-msvc-developer-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "windows-msvc-developer",
       "inherits": "test-common-minsizerel"
     },
     {
-      "name": "windows-msvc-minsizerel-user",
+      "name": "windows-msvc-user-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "windows-msvc-user",
       "inherits": "test-common-minsizerel"
     },
     {
-      "name": "windows-clang-minsizerel-developer",
+      "name": "windows-clang-developer-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "windows-clang-developer",
       "inherits": "test-common-minsizerel"
     },
     {
-      "name": "windows-clang-minsizerel-user",
+      "name": "windows-clang-user-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "windows-clang-user",
       "inherits": "test-common-minsizerel"
     },
     {
-      "name": "unixlike-gcc-minsizerel-developer",
+      "name": "unixlike-gcc-developer-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "unixlike-gcc-developer",
       "inherits": "test-common-minsizerel"
     },
     {
-      "name": "unixlike-gcc-minsizerel-user",
+      "name": "unixlike-gcc-user-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "unixlike-gcc-user",
       "inherits": "test-common-minsizerel"
     },
     {
-      "name": "unixlike-clang-minsizerel-developer",
+      "name": "unixlike-clang-developer-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "unixlike-clang-developer",
       "inherits": "test-common-minsizerel"
     },
     {
-      "name": "unixlike-clang-minsizerel-user",
+      "name": "unixlike-clang-user-minsizerel",
       "displayName": "MinSizeRel",
       "configurePreset": "unixlike-clang-user",
       "inherits": "test-common-minsizerel"
