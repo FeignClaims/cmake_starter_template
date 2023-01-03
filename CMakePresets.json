@@ -41,7 +41,7 @@
       "condition": {
         "type": "inList",
         "string": "${hostSystemName}",
-        "list": ["Linux", "Darwin"]
+        "list": ["Linux", "Darwin", "Windows"]
       },
       "vendor": {
         "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": {
@@ -87,7 +87,7 @@
     },
     {
       "name": "windows-msvc-developer",
-      "displayName": "msvc (Developer)",
+      "displayName": "vs-msvc (Developer)",
       "description": "Target Windows with the msvc compiler",
       "inherits": "conf-windows-common-developer",
       "cacheVariables": {
@@ -97,7 +97,7 @@
     },
     {
       "name": "windows-msvc-user",
-      "displayName": "msvc (User)",
+      "displayName": "vs-msvc (User)",
       "description": "Target Windows with the msvc compiler",
       "inherits": "conf-windows-common-user",
       "cacheVariables": {
@@ -107,7 +107,7 @@
     },
     {
       "name": "windows-clang-developer",
-      "displayName": "clang (Developer)",
+      "displayName": "vs-clang (Developer)",
       "description": "Target Windows with the clang compiler",
       "inherits": "conf-windows-common-developer",
       "cacheVariables": {
@@ -122,7 +122,7 @@
     },
     {
       "name": "windows-clang-user",
-      "displayName": "clang (User)",
+      "displayName": "vs-clang (User)",
       "description": "Target Windows with the clang compiler",
       "inherits": "conf-windows-common-user",
       "cacheVariables": {
