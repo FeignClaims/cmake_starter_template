@@ -4,31 +4,31 @@ Language: Cpp
 # AlignArrayOfStructures: Right  # 误诊断太多
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortLambdasOnASingleLine: Inline
-AlignConsecutiveAssignments: Consecutive
+AlignConsecutiveAssignments:
+  Enabled: true
+  AlignCompound: true
+  PadOperators: true
 AlignConsecutiveBitFields: Consecutive
 AlignConsecutiveMacros: Consecutive
 AlignEscapedNewlines: Right
-AlignOperands: AlignAfterOperator
+AlignOperands: Align
+BreakBeforeBinaryOperators: All
 BinPackArguments: false
 BinPackParameters: false
 ColumnLimit: 120
 DerivePointerAlignment: false
 EmptyLineBeforeAccessModifier: Always
 IncludeCategories:
-  - Regex: '^"(llvm|llvm-c|clang|clang-c)/'
-    Priority: 2
-  - Regex: '^((<|")(gtest|gmock|isl|json)/)'
-    Priority: 3
-  - Regex: "^<gsl/.*>"
-    Priority: 4
-  - Regex: "^<.*/.*>"
-    Priority: 5
-  - Regex: "^<[[:alnum:]_]+>"
-    Priority: 4
-  - Regex: "^<.*"
-    Priority: 5
   - Regex: '^".*'
     Priority: 1
+  - Regex: "^<[[:alnum:]_]+.h>"
+    Priority: 2
+  - Regex: "^<[[:alnum:]_]+>"
+    Priority: 3
+  - Regex: "^<.*"
+    Priority: 4
+IncludeIsMainRegex: "([-_.](test|unittest|pass|fail))?$"
+IncludeIsMainSourceRegex: ""
 InsertBraces: true
 IndentRequiresClause: true
 IndentPPDirectives: AfterHash
@@ -41,6 +41,8 @@ QualifierOrder:
   ["inline", "static", "constexpr", "type", "restrict", "const", "volatile"]
 ReferenceAlignment: Pointer
 ReflowComments: false
+# RemoveSemicolon: true                   # TODO: LLVM 16
+# RequiresExpressionIndentation: Keyword  # TODO: LLVM 16
 ShortNamespaceLines: 0
 ---
 
