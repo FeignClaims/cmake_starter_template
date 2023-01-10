@@ -14,7 +14,7 @@ target_link_libraries(app_library
 target_include_directories(app_library
   PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>
+  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
 if(ENABLE_TESTING)

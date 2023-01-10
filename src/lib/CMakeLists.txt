@@ -11,7 +11,7 @@ target_link_libraries(lib
 
 target_include_directories(lib PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>
+  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
 find_package(range-v3 CONFIG REQUIRED)
