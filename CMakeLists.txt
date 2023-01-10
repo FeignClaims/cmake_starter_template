@@ -79,9 +79,27 @@ elseif(NOT PROJECT_IS_TOP_LEVEL)
   return()
 endif()
 
-# Add other targets that you want installed here, be default we just package the one executable
-# we know we want to ship
-package_project(TARGETS header_only_lib)
+# for products, using `package_project(TARGETS app)` to pack the executable should be enough
+package_project(
+  TARGETS
+  app
+  lib
+  header_only_lib
+  project_options
+  project_warnings
+
+  INTERFACE_INCLUDES
+  ${header_only_lib_INCLUDE_DIR}
+
+  INTERFACE_DEPENDENCIES_CONFIGURED
+  ${header_only_lib_INTERFACE_DEPENDENCIES_CONFIGURED}
+
+  PUBLIC_INCLUDES
+  ${lib_INCLUDE_DIR}
+
+  PUBLIC_DEPENDENCIES_CONFIGURED
+  ${lib_PUBLIC_DEPENDENCIES_CONFIGURED}
+)
 
 # Experience shows that explicit package naming can help make it easier to sort
 # out potential ABI related issues before they start, while helping you
