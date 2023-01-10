@@ -1,8 +1,0 @@
-digraph "header_only_lib" {
-node [ fontsize = "12" ]
-    "node8" [ label = "header_only_lib", shape = pentagon ];
-    "node16" [ label = "test_header_only_lib", shape = egg ];
-    "node16" -> "node8" [ style = dotted ] // test_header_only_lib -> header_only_lib
-    "node17" [ label = "test_lib", shape = egg ];
-    "node17" -> "node8" [ style = dotted ] // test_lib -> header_only_lib
-}

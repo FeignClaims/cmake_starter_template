@@ -1,6 +1,0 @@
-digraph "GTest::gtest_main" {
-node [ fontsize = "12" ]
-    "node14" [ label = "GTest::gtest_main", shape = pentagon ];
-    "node17" [ label = "test_lib", shape = egg ];
-    "node17" -> "node14" [ style = dotted ] // test_lib -> GTest::gtest_main
-}

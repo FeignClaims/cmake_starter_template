@@ -1,6 +1,0 @@
-digraph "test_lib" {
-node [ fontsize = "12" ]
-    "node17" [ label = "test_lib", shape = egg ];
-    "node17" [ label = "test_lib", shape = egg ];
-    "node17" -> "node17"  // test_lib -> test_lib
-}

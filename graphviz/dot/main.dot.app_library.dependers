@@ -1,8 +1,0 @@
-digraph "app_library" {
-node [ fontsize = "12" ]
-    "node1" [ label = "app_library", shape = octagon ];
-    "node0" [ label = "app", shape = egg ];
-    "node0" -> "node1" [ style = dotted ] // app -> app_library
-    "node13" [ label = "test_app_library", shape = egg ];
-    "node13" -> "node1" [ style = dotted ] // test_app_library -> app_library
-}

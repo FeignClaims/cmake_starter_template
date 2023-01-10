@@ -1,6 +1,0 @@
-digraph "test_header_only_lib" {
-node [ fontsize = "12" ]
-    "node16" [ label = "test_header_only_lib", shape = egg ];
-    "node16" [ label = "test_header_only_lib", shape = egg ];
-    "node16" -> "node16"  // test_header_only_lib -> test_header_only_lib
-}

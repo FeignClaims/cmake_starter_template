@@ -47,3 +47,5 @@ _deps
 
 # remove workflow for now
 .github/
+
+graphviz/
