@@ -81,7 +81,7 @@ endif()
 
 # Add other targets that you want installed here, be default we just package the one executable
 # we know we want to ship
-package_project(TARGETS app)
+package_project(TARGETS header_only_lib)
 
 # Experience shows that explicit package naming can help make it easier to sort
 # out potential ABI related issues before they start, while helping you

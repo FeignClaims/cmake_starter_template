@@ -2,6 +2,8 @@ include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptions.cmake)
 
 set(ENABLE_CONAN_DEFAULT ON)
 
+set(WARNINGS_AS_ERRORS_DEVELOPER_DEFAULT OFF)
+
 dynamic_project_options(
   MSVC_WARNINGS
   /W4 # Baseline reasonable warnings
@@ -35,6 +37,7 @@ dynamic_project_options(
   -Wdouble-promotion # warn if float is implicit promoted to double
   -Wformat=2 # warn on security issues around functions that format output (ie printf)
   -Wfloat-equal # warn on comparing floating point with == or !=
+
   # -Wglobal-constructors # warn on declare global or static variables with dynamic constructors
   -Wimplicit-fallthrough # warn on statements that fallthrough without an explicit annotation
   -Wmisleading-indentation # warn if indentation implies blocks where blocks do not exist
