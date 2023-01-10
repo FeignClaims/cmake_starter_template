@@ -1,3 +1,5 @@
+include_guard()
+
 include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptions.cmake)
 
 set(ENABLE_CONAN_DEFAULT ON)
@@ -42,6 +44,7 @@ dynamic_project_options(
   -Wimplicit-fallthrough # warn on statements that fallthrough without an explicit annotation
   -Wmisleading-indentation # warn if indentation implies blocks where blocks do not exist
   -Wmissing-noreturn # warn about functions that might be candidates for [[noreturn]].
+  -Wno-braced-scalar-init # todo: remove this when it is correct
   -Wnon-virtual-dtor # warn the user if a class with virtual functions has a non-virtual destructor. This helps catch hard to track down memory errors
   -Wnull-dereference # warn if a null dereference is detected
   -Wold-style-cast # warn for c-style casts
@@ -100,3 +103,4 @@ dynamic_project_options(
 )
 
 include(${CMAKE_CURRENT_LIST_DIR}/SymlinkCompileCommands.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptionsExtension.cmake)

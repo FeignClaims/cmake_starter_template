@@ -1,3 +1,5 @@
+include_guard()
+
 # TODO: 不得不有辅助 target……？
 # cmake-lint: disable=E1126,C0113
 function(graphviz)

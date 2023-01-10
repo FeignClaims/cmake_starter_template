@@ -1,3 +1,5 @@
+include_guard()
+
 include(${CMAKE_CURRENT_LIST_DIR}/GraphViz.cmake)
 set(GRAPHVIZ_ENABLE_UNKNOWN_LIBS OFF)
 set(GRAPHVIZ_ENABLE_CUSTOM_TARGETS ON)
