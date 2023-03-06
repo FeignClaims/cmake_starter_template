@@ -99,6 +99,30 @@ Then build (targets `app` and `test_app` for instance):
 cmake --build --preset clang-debug -t app test_app
 ```
 
+### Install
+
+#### Install without knowing the build directory
+
+> the install prefix defaults to `/usr/local` on UNIX and `C:/Program Files/${PROJECT_NAME}` on Windows
+
+Reconfigure to specify the install prefix if hasn't:
+
+```bash
+cmake --preset clang --install-prefix <directory>
+```
+
+Install:
+
+```bash
+cmake --build --preset clang-debug -t install
+```
+
+#### Install with knowing the build directory
+
+```bash
+cmake --install <build_dir> [<options>]
+```
+
 ### Switch to developer mode
 
 By default, cmake configures the project on user mode. For developers, you can switch to developer mode by:
