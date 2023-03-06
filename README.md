@@ -71,6 +71,8 @@ cmake --preset clang
 
 ### Build
 
+#### Build `ALL`
+
 List all available build presets:
 
 ```bash
@@ -81,6 +83,20 @@ Choose one to build (preset `clang-debug` for instance):
 
 ```bash
 cmake --build --preset clang-debug
+```
+
+#### Choose to build
+
+List all available targets:
+
+```bash
+cmake --build --preset clang-debug -t help
+```
+
+Then build (targets `app` and `test_app` for instance):
+
+```bash
+cmake --build --preset clang-debug -t app test_app
 ```
 
 ### Switch to developer mode
