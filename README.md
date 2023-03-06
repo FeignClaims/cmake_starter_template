@@ -41,6 +41,8 @@ git clone https://github.com/<user>/<your_new_repo>.git
 
 #### Install conan dependencies
 
+Use `conan --help` for help.
+
 To install conan dependencies:
 
 ```bash
@@ -57,6 +59,8 @@ After this, conan will generate `CMakeUserPresets.json` for cmake.
 
 #### Configure cmake
 
+Use `cmake --help` for help.
+
 List all available configure presets:
 
 ```bash
@@ -72,6 +76,8 @@ cmake --preset clang
 ### Build
 
 #### Build `ALL`
+
+Use `cmake --build` for help.
 
 List all available build presets:
 
@@ -118,6 +124,8 @@ cmake --build --preset clang-debug -t install
 ```
 
 #### Install with knowing the build directory
+
+Use `cmake --install` for help.
 
 ```bash
 cmake --install <build_dir> [<options>]
