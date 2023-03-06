@@ -83,6 +83,25 @@ Choose one to build (preset `clang-debug` for instance):
 cmake --build --preset clang-debug
 ```
 
+### Switch to developer mode
+
+By default, cmake configures the project on user mode. For developers, you can switch to developer mode by:
+
+#### Use `-DENABLE_DEVELOPER_MODE:BOOL=ON`
+
+```bash
+cmake --preset clang -DENABLE_DEVELOPER_MODE:BOOL=ON
+```
+
+#### Use `ccmake` after first configuration
+
+```bash
+cmake --preset clang
+ccmake --preset clang
+```
+
+#### Use `cmake-gui`
+
 ## More Details
 
 The repository is templated from [cpp-best-practices/gui_starter_template](https://github.com/cpp-best-practices/gui_starter_template). You can learn more there.
