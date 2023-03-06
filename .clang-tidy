@@ -1,0 +1,22 @@
+---
+Checks: "clang-diagnostic-*,\
+  clang-analyzer-*,\
+  *,\
+  -abseil*,\
+  -altera*,\
+  -cert-dcl21-cpp,\
+  -fuchsia*,\
+  -llvmlib*,\
+  -llvm-include-order,\
+  -llvm-qualified-auto,\
+  -zircon*,\
+  -google-readability-todo,\
+  -readability-implicit-bool-conversion,\
+  -readability-qualified-auto,\
+  -readability-static-accessed-through-instance"
+WarningsAsErrors: ""
+HeaderFilterRegex: ""
+AnalyzeTemporaryDtors: false
+UseColor: true
+FormatStyle: none
+User: feignclaims
