@@ -63,10 +63,10 @@ List all available configure presets:
 cmake --list-presets
 ```
 
-Choose one to configure (preset `conan-clang` for instance):
+Choose one to configure (preset `clang` for instance):
 
 ```bash
-cmake --preset conan-clang
+cmake --preset clang
 ```
 
 #### Build
@@ -77,10 +77,10 @@ List all available build presets:
 cmake --build --list-presets
 ```
 
-Choose one to build (preset `conan-clang-debug` for instance):
+Choose one to build (preset `clang-debug` for instance):
 
 ```bash
-cmake --build --preset conan-clang-debug
+cmake --build --preset clang-debug
 ```
 
 ## More Details
