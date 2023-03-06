@@ -37,7 +37,7 @@ Now you can clone the project locally and get to work!
 git clone https://github.com/<user>/<your_new_repo>.git
 ```
 
-### Configure the project
+### Configure
 
 #### Install conan dependencies
 
@@ -55,7 +55,7 @@ conan install . -b missing -s build_type=Release
 
 After this, conan will generate `CMakeUserPresets.json` for cmake.
 
-#### Configure
+#### Configure cmake
 
 List all available configure presets:
 
@@ -69,7 +69,7 @@ Choose one to configure (preset `clang` for instance):
 cmake --preset clang
 ```
 
-#### Build
+### Build
 
 List all available build presets:
 
