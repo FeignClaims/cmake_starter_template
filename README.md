@@ -6,7 +6,7 @@ Not Documented Well Yet!
 
 This is a template for getting up and running with C++ quickly.
 
-It requires
+It requires:
 
 - ccache
 - clang 15+
