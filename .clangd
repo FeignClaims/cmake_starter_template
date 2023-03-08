@@ -17,8 +17,8 @@ Diagnostics:
         readability-static-accessed-through-instance,
       ]
     CheckOptions:
-      readability-identifier-length.IgnoredVariableNames: ^[n]$|ch|_|id|to|t|u
-      readability-identifier-length.IgnoredParameterNames: ^[n]$|ch|_|id|to|t|u
+      readability-identifier-length.IgnoredVariableNames: n|ch|_|id|to|t|u
+      readability-identifier-length.IgnoredParameterNames: n|ch|_|id|to|t|u
   UnusedIncludes: Strict
 Index:
   Background: Build

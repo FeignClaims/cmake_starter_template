@@ -14,6 +14,9 @@ Checks: "clang-diagnostic-*,\
   -readability-implicit-bool-conversion,\
   -readability-qualified-auto,\
   -readability-static-accessed-through-instance"
+CheckOptions:
+  readability-identifier-length.IgnoredVariableNames: n|ch|_|id|to|t|u
+  readability-identifier-length.IgnoredParameterNames: n|ch|_|id|to|t|u
 WarningsAsErrors: ""
 HeaderFilterRegex: ""
 AnalyzeTemporaryDtors: false
