@@ -17,6 +17,9 @@ class starterRecipe(ConanFile):
 
     def requirements(self):
         self.requires("fmt/[>=9.1.0]")
-        self.requires("gtest/[>=1.13.0]")
         self.requires("ms-gsl/[>=4.0.0]")
         self.requires("range-v3/[>=0.12.0]")
+
+    def build_requirements(self):
+        self.tool_requires("cmake/[>=3.25]")
+        self.test_requires("gtest/[>=1.13.0]")
