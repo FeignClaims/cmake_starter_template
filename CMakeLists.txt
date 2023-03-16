@@ -9,7 +9,7 @@ include(MyProjectOptions)
 add_subdirectory(src)
 
 # Adding the tests
-option(ENABLE_TESTING "Enable the tests" ${PROJECT_IS_TOP_LEVEL})
+option(ENABLE_TESTING "Enable the tests" OFF)
 
 if(ENABLE_TESTING)
   enable_testing()
