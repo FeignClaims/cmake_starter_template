@@ -26,6 +26,6 @@ gtest_discover_tests(test_app_library)
 # Executable part
 add_test(
   NAME test_app
-  COMMAND test_app ""
+  COMMAND app ""
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
