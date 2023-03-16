@@ -152,6 +152,28 @@ ccmake --preset clang
 
 #### Use `cmake-gui`
 
+### Test
+
+Use `ctest --help` for help.
+
+List all available test presets:
+
+```bash
+ctest --list-presets
+```
+
+Choose one to test (preset `clang-debug` for instance):
+
+```bash
+ctest --preset clang-debug
+```
+
+If fails, run the failed test with coloured output:
+
+```bash
+GTEST_COLOR=1 ctest --preset clang-debug --rerun-failed --output-on-failure
+```
+
 ## More Details
 
 The repository is templated from [cpp-best-practices/gui_starter_template](https://github.com/cpp-best-practices/gui_starter_template). You can learn more there.
