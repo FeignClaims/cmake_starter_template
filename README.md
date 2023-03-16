@@ -1,6 +1,8 @@
 # cmake_starter_template
 
-Not Documented Well Yet!
+:warning: Unfinished!
+
+:warning: Not Documented Well Yet!
 
 ## About cmake_starter_template
 
