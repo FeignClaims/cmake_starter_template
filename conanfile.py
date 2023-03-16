@@ -1,5 +1,5 @@
 from conan import ConanFile
-from conan.tools.cmake import cmake_layout, CMakeToolchain, CMakeDeps, CMake
+from conan.tools.cmake import cmake_layout, CMakeToolchain, CMakeDeps
 
 
 class starterRecipe(ConanFile):
