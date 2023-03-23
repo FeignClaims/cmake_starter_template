@@ -1,7 +1,7 @@
 BasedOnStyle: Google
 ---
 Language: Cpp
-# AlignArrayOfStructures: Right  # 误诊断太多
+AlignArrayOfStructures: Right
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortLambdasOnASingleLine: Inline
 AlignConsecutiveAssignments:
@@ -12,7 +12,9 @@ AlignConsecutiveBitFields: Consecutive
 AlignConsecutiveMacros: Consecutive
 AlignEscapedNewlines: Right
 AlignOperands: Align
+BreakAfterAttributes: Leave
 BreakBeforeBinaryOperators: All
+BreakBeforeInlineASMColon: OnlyMultiline
 BinPackArguments: false
 BinPackParameters: false
 ColumnLimit: 120
@@ -32,8 +34,14 @@ IncludeCategories:
 IncludeIsMainRegex: "([-_.](test|unittest|pass|fail))?$"
 IncludeIsMainSourceRegex: ""
 InsertBraces: true
+IntegerLiteralSeparator:
+  Binary: 4
+  Decimal: 0
+  Hex: 2
 IndentRequiresClause: true
 IndentPPDirectives: AfterHash
+InsertNewlineAtEOF: false
+LineEnding: LF
 NamespaceIndentation: Inner
 PackConstructorInitializers: NextLine
 RequiresClausePosition: OwnLine
@@ -43,8 +51,8 @@ QualifierOrder:
   ["inline", "static", "constexpr", "type", "restrict", "const", "volatile"]
 ReferenceAlignment: Pointer
 ReflowComments: false
-# RemoveSemicolon: true                   # TODO: LLVM 16
-# RequiresExpressionIndentation: Keyword  # TODO: LLVM 16
+RemoveSemicolon: true
+RequiresExpressionIndentation: Keyword
 ShortNamespaceLines: 0
 ---
 
