@@ -1,7 +1,7 @@
 BasedOnStyle: Google
 ---
 Language: Cpp
-AlignArrayOfStructures: Right
+# AlignArrayOfStructures: Right  # Too many false positive
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortLambdasOnASingleLine: Inline
 AlignConsecutiveAssignments:
