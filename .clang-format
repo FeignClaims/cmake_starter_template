@@ -23,14 +23,14 @@ EmptyLineBeforeAccessModifier: Always
 IncludeCategories:
   - Regex: '^".*'
     Priority: 1
-  - Regex: "^<[[:alnum:]_]+\\.h>"
-    Priority: 2
   - Regex: "^<[[:alnum:]_]+>"
-    Priority: 3
+    Priority: 2
   - Regex: "^<experimental/[[:alnum:]_]+>"
-    Priority: 3
+    Priority: 2
+  - Regex: "^<gsl/[[:alnum:]_]+>"
+    Priority: 2
   - Regex: "^<.*"
-    Priority: 4
+    Priority: 3
 IncludeIsMainRegex: "([-_.](test|unittest|pass|fail))?$"
 IncludeIsMainSourceRegex: ""
 InsertBraces: true
