@@ -7,7 +7,7 @@ target_sources(app_library
   PRIVATE
   src/fibonacci.cpp
 )
-target_include_interface_directory(app_library) # Includes
+target_include_interface_directories(app_library include) # Includes
 target_link_libraries(app_library
   PRIVATE
   project_options
@@ -28,7 +28,7 @@ target_link_libraries(app
 )
 
 target_find_dependencies(app # Find dependencies
-  PRIVATE
+  PRIVATE_CONFIG
   fmt
 )
 target_link_system_libraries(app # Link dependencies

@@ -96,5 +96,3 @@ dynamic_project_options(
   --suppress=syntaxError
   --inconclusive
 )
-
-include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptionsExtension.cmake)

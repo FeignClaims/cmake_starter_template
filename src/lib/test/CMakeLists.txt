@@ -11,7 +11,7 @@ target_link_libraries(test_lib
 )
 
 target_find_dependencies(test_lib
-  PRIVATE
+  PRIVATE_CONFIG
   GTest
 )
 target_link_system_libraries(test_lib

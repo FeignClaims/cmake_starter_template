@@ -3,7 +3,7 @@ target_sources(lib
   PRIVATE
   src/sort.cpp
 )
-target_include_interface_directory(lib) # Includes
+target_include_interface_directories(lib include) # Includes
 target_link_libraries(lib
   PRIVATE
   project_options
@@ -11,7 +11,7 @@ target_link_libraries(lib
 )
 
 target_find_dependencies(lib # Find dependencies
-  PRIVATE
+  PRIVATE_CONFIG
   range-v3
 )
 target_link_system_libraries(lib # Link dependencies

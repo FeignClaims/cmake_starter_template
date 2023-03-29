@@ -12,7 +12,7 @@ target_link_libraries(test_app_library
 )
 
 target_find_dependencies(test_app_library
-  PRIVATE
+  PRIVATE_CONFIG
   GTest
 )
 target_link_system_libraries(test_app_library
