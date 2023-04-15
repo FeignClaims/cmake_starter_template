@@ -15,6 +15,8 @@ class starterRecipe(ConanFile):
         self.test_requires("gtest/[>=1.13.0]")
 
     def layout(self):
+        # By default, distinguish configuraiotns by compiler name
+        # This can be changed by setting `tools.cmake.cmake_layout:build_folder_vars` in command-line or profiles
         self.folders.build_folder_vars = ["settings.compiler"]
         cmake_layout(self)
 
