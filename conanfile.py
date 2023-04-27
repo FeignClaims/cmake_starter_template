@@ -12,7 +12,7 @@ class starterRecipe(ConanFile):
 
     def build_requirements(self):
         self.tool_requires("cmake/[>=3.25]")
-        self.test_requires("gtest/[>=1.13.0]")
+        self.test_requires("gtest/1.13.0")
 
     def layout(self):
         # By default, distinguish configuraiotns by compiler name
