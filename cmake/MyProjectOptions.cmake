@@ -3,6 +3,8 @@ include_guard()
 include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptions.cmake)
 
 dynamic_project_options(
+  ENABLE_COMPILE_COMMANDS_SYMLINK
+
   MSVC_WARNINGS
   /W4 # Baseline reasonable warnings
   /permissive- # standards conformance mode for MSVC compiler
