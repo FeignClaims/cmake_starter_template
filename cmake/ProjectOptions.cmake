@@ -1,12 +1,9 @@
 include_guard()
 
-message(STATUS "Downloading ProjectOptions from https://github.com/aminya/project_options.git\n"
-  "Please make sure that you can connect to github"
-)
 include(FetchContent)
 FetchContent_Declare(_project_options
   GIT_REPOSITORY https://github.com/aminya/project_options.git
-  GIT_TAG v0.29.0
+  GIT_TAG v0.30.0
   GIT_SHALLOW true
 )
 FetchContent_MakeAvailable(_project_options)
