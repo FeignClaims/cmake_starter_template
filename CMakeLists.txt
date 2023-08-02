@@ -3,7 +3,8 @@ project(starter VERSION 0.0.1 LANGUAGES CXX)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-include(MyProjectOptions)
+# Customize project_options
+include(CustomizedProjectOptions)
 
 # Adding the src
 add_subdirectory(src)
