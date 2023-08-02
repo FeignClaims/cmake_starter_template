@@ -5,6 +5,9 @@ include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptions.cmake)
 set(ENABLE_COMPILE_COMMANDS_SYMLINK_DEFAULT ON)
 
 dynamic_project_options(
+  PREFIX
+  "starter" # set a prefix in case this project is used as a subproject
+
   MSVC_WARNINGS
   /W4 # Baseline reasonable warnings
   /permissive- # standards conformance mode for MSVC compiler

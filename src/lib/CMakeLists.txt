@@ -6,8 +6,8 @@ target_sources(lib
 target_include_interface_directories(lib include) # Includes
 target_link_libraries(lib
   PRIVATE
-  project_options
-  project_warnings
+  starter_project_options
+  starter_project_warnings
 )
 
 target_find_dependencies(lib # Find dependencies

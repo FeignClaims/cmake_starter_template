@@ -7,8 +7,8 @@ target_sources(test_app_library
 target_link_libraries(test_app_library
   PRIVATE
   app_library
-  project_options
-  project_warnings
+  starter_project_options
+  starter_project_warnings
 )
 
 target_find_dependencies(test_app_library

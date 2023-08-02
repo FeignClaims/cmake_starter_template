@@ -10,8 +10,8 @@ target_sources(app_library
 target_include_interface_directories(app_library include) # Includes
 target_link_libraries(app_library
   PRIVATE
-  project_options
-  project_warnings
+  starter_project_options
+  starter_project_warnings
 )
 
 # Executable part
@@ -23,8 +23,8 @@ target_sources(app
 target_link_libraries(app
   PRIVATE
   app_library
-  project_options
-  project_warnings
+  starter_project_options
+  starter_project_warnings
 )
 
 target_find_dependencies(app # Find dependencies

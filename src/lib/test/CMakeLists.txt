@@ -6,8 +6,8 @@ target_sources(test_lib
 target_link_libraries(test_lib
   PRIVATE
   lib
-  project_options
-  project_warnings
+  starter_project_options
+  starter_project_warnings
 )
 
 target_find_dependencies(test_lib

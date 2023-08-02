@@ -11,6 +11,7 @@ add_subdirectory(src)
 
 # Adding the tests
 include(CTest)
+
 if(BUILD_TESTING)
   enable_testing()
   message(STATUS "Building Tests.")
@@ -18,6 +19,7 @@ if(BUILD_TESTING)
 endif()
 
 option(BUILD_FUZZ_TESTING "Enable the fuzz tests" OFF)
+
 if(BUILD_FUZZ_TESTING)
   message(STATUS "Building Fuzz Tests, using fuzzing sanitizer https://www.llvm.org/docs/LibFuzzer.html")
   add_subdirectory(fuzz_test)
@@ -33,8 +35,8 @@ package_project(
   app
   lib
   header_only_lib
-  project_options
-  project_warnings
+  starter_project_options
+  starter_project_warnings
 )
 
 set(CPACK_PACKAGE_FILE_NAME
