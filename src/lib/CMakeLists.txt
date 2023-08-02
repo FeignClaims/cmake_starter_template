@@ -20,7 +20,7 @@ target_link_system_libraries(lib # Link dependencies
 )
 
 # Tests
-if(ENABLE_TESTING)
+if(BUILD_TESTING)
   enable_testing()
   add_subdirectory(test)
 endif()
