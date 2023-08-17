@@ -12,7 +12,6 @@ add_subdirectory(src)
 # Adding the tests
 option(BUILD_TESTING "Build the testing tree." OFF)
 include(CTest)
-
 if(BUILD_TESTING)
   enable_testing()
   message(STATUS "Building Tests.")
@@ -20,7 +19,6 @@ if(BUILD_TESTING)
 endif()
 
 option(BUILD_FUZZ_TESTING "Enable the fuzz tests" OFF)
-
 if(BUILD_FUZZ_TESTING)
   message(STATUS "Building Fuzz Tests, using fuzzing sanitizer https://www.llvm.org/docs/LibFuzzer.html")
   add_subdirectory(fuzz_test)
