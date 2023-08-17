@@ -10,6 +10,7 @@ include(CustomizedProjectOptions)
 add_subdirectory(src)
 
 # Adding the tests
+option(BUILD_TESTING "Build the testing tree." OFF)
 include(CTest)
 
 if(BUILD_TESTING)
