@@ -2,6 +2,7 @@ include_guard()
 
 include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptions.cmake)
 
+# compile_commands.json
 set(ENABLE_COMPILE_COMMANDS_SYMLINK_DEFAULT ON)
 
 # hardening
