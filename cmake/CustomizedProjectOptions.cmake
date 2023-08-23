@@ -4,6 +4,13 @@ include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptions.cmake)
 
 set(ENABLE_COMPILE_COMMANDS_SYMLINK_DEFAULT ON)
 
+# hardening
+set(ENABLE_CONTROL_FLOW_PROTECTION_DEFAULT ON)
+set(ENABLE_ELF_PROTECTION_DEFAULT OFF)
+set(ENABLE_OVERFLOW_PROTECTION_DEFAULT ON)
+set(ENABLE_RUNTIME_SYMBOLS_RESOLUTION_DEFAULT ON)
+set(ENABLE_STACK_PROTECTION_DEFAULT ON)
+
 dynamic_project_options(
   PREFIX
   "starter" # set a prefix in case this project is used as a subproject
