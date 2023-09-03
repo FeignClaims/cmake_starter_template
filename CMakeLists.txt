@@ -9,16 +9,20 @@ include(CustomizedProjectOptions)
 # Adding the src
 add_subdirectory(src)
 
-# Adding the tests
+# Options
 option(BUILD_TESTING "Build the testing tree." OFF)
+option(BUILD_FUZZ_TESTING "Enable the fuzz tests" OFF)
+
 include(CTest)
+
+# Adding the tests
 if(BUILD_TESTING)
   enable_testing()
   message(STATUS "Building Tests.")
   add_subdirectory(test)
 endif()
 
-option(BUILD_FUZZ_TESTING "Enable the fuzz tests" OFF)
+# Adding the fuzzing tests
 if(BUILD_FUZZ_TESTING)
   message(STATUS "Building Fuzz Tests, using fuzzing sanitizer https://www.llvm.org/docs/LibFuzzer.html")
   add_subdirectory(fuzz_test)
