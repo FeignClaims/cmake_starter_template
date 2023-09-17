@@ -1,9 +1,13 @@
 #include "app/fibonacci.hpp"
 
-#include <gtest/gtest.h>
+#include <boost/ut.hpp>
 
-TEST(App, Fibonacci) {
-  EXPECT_EQ(1, app::fibonacci(1));
-  EXPECT_EQ(1, app::fibonacci(2));
-  EXPECT_EQ(2, app::fibonacci(3));
+auto main() -> int {
+  using namespace boost::ut;  // NOLINT(*using-namespace*)
+
+  "fibonacci"_test = [] {
+    expect(app::fibonacci(1) == 1);
+    expect(app::fibonacci(2) == 1);
+    expect(app::fibonacci(3) == 2);
+  };
 }

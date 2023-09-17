@@ -6,9 +6,9 @@ function(add_library_test library test_name)
   set(multi_value_args SOURCES INCLUDES SYSTEM_INCLUDES DEPENDENCIES_CONFIG DEPENDENCIES LIBRARIES EXECUTE_ARGS)
   cmake_parse_arguments(args "${options}" "${one_value_args}" "${multi_value_args}" ${ARGN})
 
-  set(test_framework_dependency "GTest")
-  set(test_framework_library "GTest::gtest_main")
-  set(test_framework_execute_args "--gtest_color=yes")
+  set(test_framework_dependency "ut")
+  set(test_framework_library "boost-ext-ut::ut")
+  set(test_framework_execute_args)
 
   set(target_name "${PROJECT_NAME}.test.${library}.${test_name}")
   set(current_project_options "${PROJECT_NAME}_project_options")

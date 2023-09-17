@@ -2,10 +2,14 @@
 
 #include <vector>
 
-#include <gtest/gtest.h>
+#include <boost/ut.hpp>
 
-TEST(HeaderOnlyLib, ToString) {
-  std::vector<int> const vec{1, 2, 3, 4};
+auto main() -> int {
+  using namespace boost::ut;  // NOLINT(*using-namespace*)
 
-  EXPECT_EQ("1, 2, 3, 4", header_only_lib::to_string(vec));  // put the expected value on the left side
+  "to_string"_test = [] {
+    std::vector<int> const vec{1, 2, 3, 4};
+
+    expect(header_only_lib::to_string(vec) == "1, 2, 3, 4");
+  };
 }

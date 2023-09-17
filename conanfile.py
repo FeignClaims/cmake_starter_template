@@ -18,7 +18,7 @@ class starterRecipe(ConanFile):
 
     def build_requirements(self):
         self.tool_requires("cmake/[>=3.25 <4.0.0]")
-        self.test_requires("gtest/1.14.0")
+        self.test_requires("boost-ext-ut/1.1.9")
 
     def generate(self):
         CMakeDeps(self).generate()
