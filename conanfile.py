@@ -12,13 +12,13 @@ class starterRecipe(ConanFile):
         cmake_layout(self)
 
     def requirements(self):
-        self.requires("fmt/[>=9.1.0]")
-        self.requires("ms-gsl/[>=4.0.0]")
-        self.requires("range-v3/[>=0.12.0]")
+        self.requires("fmt/10.1.1")
+        self.requires("ms-gsl/4.0.0")
+        self.requires("range-v3/0.12.0")
 
     def build_requirements(self):
-        self.tool_requires("cmake/[>=3.25]")
-        self.test_requires("gtest/1.13.0")
+        self.tool_requires("cmake/[>=3.25 <4.0.0]")
+        self.test_requires("gtest/1.14.0")
 
     def generate(self):
         CMakeDeps(self).generate()
