@@ -6,18 +6,18 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 # Customize project_options
 include(CustomizedProjectOptions)
 
-# Adding the src
-add_subdirectory(src)
-
 # Options
 option(BUILD_TESTING "Build the testing tree." OFF)
 option(BUILD_FUZZ_TESTING "Enable the fuzz tests" OFF)
 
+# Include CTest before any tests
 include(CTest)
+
+# Adding the src
+add_subdirectory(src)
 
 # Adding the tests
 if(BUILD_TESTING)
-  enable_testing()
   message(STATUS "Building Tests.")
   add_subdirectory(test)
 endif()

@@ -1,24 +1,9 @@
-add_executable(test_lib)
-target_sources(test_lib
-  PRIVATE
+include(AddTest)
+
+add_library_test(lib sort.pass
+  SOURCES
   sort.pass.cpp
-)
-target_link_libraries(test_lib
-  PRIVATE
-  lib
-  starter_project_options
-  starter_project_warnings
-)
 
-target_find_dependencies(test_lib
-  PRIVATE_CONFIG
-  GTest
-)
-target_link_system_libraries(test_lib
-  PRIVATE
+  LIBRARIES
   header_only_lib
-  GTest::gtest_main
 )
-
-include(GoogleTest)
-gtest_discover_tests(test_lib)
