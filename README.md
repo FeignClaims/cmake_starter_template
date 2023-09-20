@@ -171,7 +171,7 @@ ctest --preset clang-debug
 If fails, run the failed test with coloured output:
 
 ```bash
-GTEST_COLOR=1 ctest --preset clang-debug --rerun-failed --output-on-failure
+ctest --preset clang-debug --rerun-failed --output-on-failure
 ```
 
 ## More Details
