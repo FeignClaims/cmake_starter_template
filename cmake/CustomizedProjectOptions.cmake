@@ -43,12 +43,13 @@ dynamic_project_options(
   -Wall
   -Wextra # reasonable and standard
   -Wcast-align # warn for potential performance problem casts
+  -Wcast-function-type # warn about function typemismatches in casts
   -Wconversion # warn on type conversions that may lose data
+  -Wcovered-switch-default # warn if use default labels in fully covered switches over enumerations. This helps when a new enum value is added
   -Wdouble-promotion # warn if float is implicit promoted to double
   -Wextra-semi # warn about semicolon after in-class function definition
   -Wfloat-equal # warn on comparing floating point with == or !=
   -Wformat=2 # warn on security issues around functions that format output (ie printf)
-  -Wcovered-switch-default # warn if use default labels in fully covered switches over enumerations. This helps when a new enum value is added
   # -Wglobal-constructors  # warn on declare global or static variables with dynamic constructors
   -Wimplicit-fallthrough # warn on statements that fallthrough without an explicit annotation
   -Wmisleading-indentation # warn if indentation implies blocks where blocks do not exist
@@ -63,9 +64,14 @@ dynamic_project_options(
   -Wpointer-arith # warn on pointer arithmetic
   -Wshadow # warn the user if a variable declaration shadows one from a parent context
   -Wsign-conversion # warn on sign conversions
+  -Wtautological-compare # warn for tautological comparisons
+  -Wthread-safety # warn for thread safety
   -Wundef # warn if an undefined identifier is evaluated in an #if directive
+  -Wunreachable-code-aggressive # warn if code will never be executed
   -Wunused # warn on anything being unused
+  -Wno-gnu-line-marker # avoid the warn on gnu line marker when `--save-temps=obj` enabled
   -ftemplate-backtrace-limit=0
+  -fconstexpr-backtrace-limit=0
 
   GCC_WARNINGS
   -Wall
