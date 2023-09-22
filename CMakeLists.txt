@@ -24,6 +24,8 @@ add_test_config(common
   LIBRARIES
   starter_project_options
   starter_project_warnings
+
+  SYSTEM_LIBRARIES
   boost-ext-ut::ut
 )
 

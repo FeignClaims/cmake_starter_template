@@ -10,6 +10,7 @@
 #     [DEPENDENCIES_CONFIG <arg1...>]
 #     [DEPENDENCIES <arg1...>]
 #     [LIBRARIES <arg1...>]
+#     [SYSTEM_LIBRARIES <arg1...>]
 #     [COMPILE_DEFINITIONS <arg1...>]
 #     [COMPILE_OPTIONS <arg1...>]
 #     [COMPILE_FEATURES <arg1...>]
@@ -26,6 +27,7 @@
 #     [DEPENDENCIES_CONFIG <arg1...>]
 #     [DEPENDENCIES <arg1...>]
 #     [LIBRARIES <arg1...>]
+#     [SYSTEM_LIBRARIES <arg1...>]
 #     [COMPILE_DEFINITIONS <arg1...>]
 #     [COMPILE_OPTIONS <arg1...>]
 #     [COMPILE_FEATURES <arg1...>]
@@ -39,12 +41,7 @@
 
 include_guard()
 
-function(_Set_config_execute_args target_name execute_args)
-  set_property(TARGET ${target_name} PROPERTY PROJECT_OPTIONS_EXECUTE_ARGS ${execute_args})
-endfunction()
-
-# Add a library test config called test_config.${config_name}
-function(add_test_config config_name)
+function(_Configure_target target_name type)
   set(options)
   set(one_value_args)
   set(multi_value_args
@@ -54,49 +51,107 @@ function(add_test_config config_name)
     DEPENDENCIES_CONFIG
     DEPENDENCIES
     LIBRARIES
+    SYSTEM_LIBRARIES
     COMPILE_DEFINITIONS
     COMPILE_OPTIONS
     COMPILE_FEATURES
+  )
+  cmake_parse_arguments(args "${options}" "${one_value_args}" "${multi_value_args}" ${ARGN})
+
+  if(${type} STREQUAL "library_test")
+    add_executable(${target_name})
+    set(scope PRIVATE)
+  elseif(${type} STREQUAL "test_config")
+    add_library(${target_name} INTERFACE)
+    set(scope INTERFACE)
+  endif()
+
+  target_sources(${target_name}
+    ${scope}
+    ${args_SOURCES}
+  )
+  target_include_directories(${target_name}
+    ${scope}
+    ${args_INCLUDES}
+  )
+  target_link_libraries(${target_name}
+    ${scope}
+    ${args_LIBRARIES}
+  )
+  target_include_system_directories(${target_name}
+    ${scope}
+    ${args_SYSTEM_INCLUDES}
+  )
+  target_find_dependencies(${target_name}
+    "${scope}_CONFIG"
+    ${args_DEPENDENCIES_CONFIG}
+
+    ${scope}
+    ${args_DEPENDENCIES}
+  )
+  target_link_system_libraries(${target_name}
+    ${scope}
+    ${args_SYSTEM_LIBRARIES}
+  )
+  target_compile_definitions(${target_name}
+    ${scope}
+    ${args_COMPILE_DEFINITIONS}
+  )
+  target_compile_options(${target_name}
+    ${scope}
+    ${args_COMPILE_OPTIONS}
+  )
+  target_compile_features(${target_name}
+    ${scope}
+    ${args_COMPILE_FEATURES}
+  )
+endfunction()
+
+function(_Set_config_execute_args target_name execute_args)
+  set_property(TARGET ${target_name} PROPERTY PROJECT_OPTIONS_EXECUTE_ARGS ${execute_args})
+endfunction()
+
+# Add a library test config called test_config.${config_name}
+function(add_test_config config_name)
+  set(options)
+  set(one_value_args)
+  set(multi_value_args
     EXECUTE_ARGS
+
+    SOURCES
+    INCLUDES
+    SYSTEM_INCLUDES
+    DEPENDENCIES_CONFIG
+    DEPENDENCIES
+    LIBRARIES
+    SYSTEM_LIBRARIES
+    COMPILE_DEFINITIONS
+    COMPILE_OPTIONS
+    COMPILE_FEATURES
   )
   cmake_parse_arguments(args "${options}" "${one_value_args}" "${multi_value_args}" ${ARGN})
 
   set(target_name "test_config.${config_name}")
-
-  add_library(${target_name} INTERFACE)
-  target_sources(${target_name}
-    INTERFACE
+  _Configure_target(${target_name} test_config
+    SOURCES
     ${args_SOURCES}
-  )
-  target_include_directories(${target_name}
-    INTERFACE
+    INCLUDES
     ${args_INCLUDES}
-  )
-  target_include_system_directories(${target_name}
-    INTERFACE
+    SYSTEM_INCLUDES
     ${args_SYSTEM_INCLUDES}
-  )
-  target_find_dependencies(${target_name}
-    INTERFACE_CONFIG
+    DEPENDENCIES_CONFIG
     ${args_DEPENDENCIES_CONFIG}
-
-    INTERFACE
+    DEPENDENCIES
     ${args_DEPENDENCIES}
-  )
-  target_link_system_libraries(${target_name}
-    INTERFACE
+    LIBRARIES
     ${args_LIBRARIES}
-  )
-  target_compile_definitions(${target_name}
-    PRIVATE
+    SYSTEM_LIBRARIES
+    ${args_SYSTEM_LIBRARIES}
+    COMPILE_DEFINITIONS
     ${args_COMPILE_DEFINITIONS}
-  )
-  target_compile_options(${target_name}
-    PRIVATE
+    COMPILE_OPTIONS
     ${args_COMPILE_OPTIONS}
-  )
-  target_compile_features(${target_name}
-    PRIVATE
+    COMPILE_FEATURES
     ${args_COMPILE_FEATURES}
   )
 
@@ -130,70 +185,51 @@ function(add_library_test library test_name)
   set(one_value_args)
   set(multi_value_args
     CONFIGS
+    EXECUTE_ARGS
+
     SOURCES
     INCLUDES
     SYSTEM_INCLUDES
     DEPENDENCIES_CONFIG
     DEPENDENCIES
     LIBRARIES
+    SYSTEM_LIBRARIES
     COMPILE_DEFINITIONS
     COMPILE_OPTIONS
     COMPILE_FEATURES
-    EXECUTE_ARGS
   )
   cmake_parse_arguments(args "${options}" "${one_value_args}" "${multi_value_args}" ${ARGN})
 
   _Add_configs_prefix(prefixed_configs ${args_CONFIGS})
 
   set(target_name "test.${library}.${test_name}")
-
-  list(LENGTH args_SOURCES sources_size)
-
-  if(sources_size LESS 1)
-    message(FATAL_ERROR "add_library_test must have at least one source file")
-  endif()
-
-  add_executable(${target_name})
-  target_sources(${target_name}
-    PRIVATE
+  _Configure_target(${target_name} library_test
+    SOURCES
     ${args_SOURCES}
-  )
-  target_include_directories(${target_name}
-    PRIVATE
+    INCLUDES
     ${args_INCLUDES}
+    SYSTEM_INCLUDES
+    ${args_SYSTEM_INCLUDES}
+    DEPENDENCIES_CONFIG
+    ${args_DEPENDENCIES_CONFIG}
+    DEPENDENCIES
+    ${args_DEPENDENCIES}
+    LIBRARIES
+    ${args_LIBRARIES}
+    SYSTEM_LIBRARIES
+    ${args_SYSTEM_LIBRARIES}
+    COMPILE_DEFINITIONS
+    ${args_COMPILE_DEFINITIONS}
+    COMPILE_OPTIONS
+    ${args_COMPILE_OPTIONS}
+    COMPILE_FEATURES
+    ${args_COMPILE_FEATURES}
   )
+
   target_link_libraries(${target_name}
     PRIVATE
     ${prefixed_configs}
     ${library}
-  )
-
-  target_include_system_directories(${target_name}
-    PRIVATE
-    ${args_SYSTEM_INCLUDES}
-  )
-  target_find_dependencies(${target_name}
-    PRIVATE_CONFIG
-    ${args_DEPENDENCIES_CONFIG}
-
-    PRIVATE
-    ${args_DEPENDENCIES}
-  )
-  target_link_system_libraries(${target_name}
-    PRIVATE
-    ${args_LIBRARIES}
-  )
-  target_compile_definitions(${target_name}
-    PRIVATE
-    ${args_COMPILE_DEFINITIONS}
-  )
-  target_compile_options(${target_name}
-    PRIVATE
-    ${args_COMPILE_OPTIONS}
-  )
-  target_compile_features(${target_name}
-    PRIVATE
-    ${args_COMPILE_FEATURES}
   )
 
   _Get_configs_execute_args(configs_execute_args ${prefixed_configs})

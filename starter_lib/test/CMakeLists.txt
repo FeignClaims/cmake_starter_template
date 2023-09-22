@@ -1,5 +1,5 @@
 add_test_config(starter_lib
-  LIBRARIES
+  SYSTEM_LIBRARIES
   starter_header_only_lib
 )
 
