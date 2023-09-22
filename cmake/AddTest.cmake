@@ -144,8 +144,6 @@ function(add_library_test library test_name)
   cmake_parse_arguments(args "${options}" "${one_value_args}" "${multi_value_args}" ${ARGN})
 
   _Add_configs_prefix(prefixed_configs ${args_CONFIGS})
-  include(CMakePrintHelpers)
-  cmake_print_variables(prefixed_configs)
 
   set(target_name "test.${library}.${test_name}")
 
