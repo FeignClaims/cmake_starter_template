@@ -10,6 +10,9 @@
 #     [DEPENDENCIES_CONFIG <arg1...>]
 #     [DEPENDENCIES <arg1...>]
 #     [LIBRARIES <arg1...>]
+#     [COMPILE_DEFINITIONS <arg1...>]
+#     [COMPILE_OPTIONS <arg1...>]
+#     [COMPILE_FEATURES <arg1...>]
 #     [EXECUTE_ARGS <arg1...>]
 #   )
 #
@@ -23,6 +26,9 @@
 #     [DEPENDENCIES_CONFIG <arg1...>]
 #     [DEPENDENCIES <arg1...>]
 #     [LIBRARIES <arg1...>]
+#     [COMPILE_DEFINITIONS <arg1...>]
+#     [COMPILE_OPTIONS <arg1...>]
+#     [COMPILE_FEATURES <arg1...>]
 #     [EXECUTE_ARGS <arg1...>]
 #   )
 #
@@ -41,7 +47,18 @@ endfunction()
 function(add_test_config config_name)
   set(options)
   set(one_value_args)
-  set(multi_value_args SOURCES INCLUDES SYSTEM_INCLUDES DEPENDENCIES_CONFIG DEPENDENCIES LIBRARIES EXECUTE_ARGS)
+  set(multi_value_args
+    SOURCES
+    INCLUDES
+    SYSTEM_INCLUDES
+    DEPENDENCIES_CONFIG
+    DEPENDENCIES
+    LIBRARIES
+    COMPILE_DEFINITIONS
+    COMPILE_OPTIONS
+    COMPILE_FEATURES
+    EXECUTE_ARGS
+  )
   cmake_parse_arguments(args "${options}" "${one_value_args}" "${multi_value_args}" ${ARGN})
 
   set(library_name "test_config.${config_name}")
@@ -69,6 +86,18 @@ function(add_test_config config_name)
   target_link_system_libraries(${library_name}
     INTERFACE
     ${args_LIBRARIES}
+  )
+  target_compile_definitions(${target_name}
+    PRIVATE
+    ${args_COMPILE_DEFINITIONS}
+  )
+  target_compile_options(${target_name}
+    PRIVATE
+    ${args_COMPILE_OPTIONS}
+  )
+  target_compile_features(${target_name}
+    PRIVATE
+    ${args_COMPILE_FEATURES}
   )
 
   _Set_config_execute_args(${library_name} "${args_EXECUTE_ARGS}")
@@ -99,7 +128,19 @@ endfunction()
 function(add_library_test library test_name)
   set(options)
   set(one_value_args)
-  set(multi_value_args CONFIGS SOURCES INCLUDES SYSTEM_INCLUDES DEPENDENCIES_CONFIG DEPENDENCIES LIBRARIES EXECUTE_ARGS)
+  set(multi_value_args
+    CONFIGS
+    SOURCES
+    INCLUDES
+    SYSTEM_INCLUDES
+    DEPENDENCIES_CONFIG
+    DEPENDENCIES
+    LIBRARIES
+    COMPILE_DEFINITIONS
+    COMPILE_OPTIONS
+    COMPILE_FEATURES
+    EXECUTE_ARGS
+  )
   cmake_parse_arguments(args "${options}" "${one_value_args}" "${multi_value_args}" ${ARGN})
 
   _Add_configs_prefix(prefixed_configs ${args_CONFIGS})
@@ -143,6 +184,18 @@ function(add_library_test library test_name)
     PRIVATE
     ${prefixed_configs}
     ${args_LIBRARIES}
+  )
+  target_compile_definitions(${target_name}
+    PRIVATE
+    ${args_COMPILE_DEFINITIONS}
+  )
+  target_compile_options(${target_name}
+    PRIVATE
+    ${args_COMPILE_OPTIONS}
+  )
+  target_compile_features(${target_name}
+    PRIVATE
+    ${args_COMPILE_FEATURES}
   )
 
   _Get_configs_execute_args(configs_execute_args ${prefixed_configs})
