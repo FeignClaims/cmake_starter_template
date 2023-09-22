@@ -61,29 +61,29 @@ function(add_test_config config_name)
   )
   cmake_parse_arguments(args "${options}" "${one_value_args}" "${multi_value_args}" ${ARGN})
 
-  set(library_name "test_config.${config_name}")
+  set(target_name "test_config.${config_name}")
 
-  add_library(${library_name} INTERFACE)
-  target_sources(${library_name}
+  add_library(${target_name} INTERFACE)
+  target_sources(${target_name}
     INTERFACE
     ${args_SOURCES}
   )
-  target_include_directories(${library_name}
+  target_include_directories(${target_name}
     INTERFACE
     ${args_INCLUDES}
   )
-  target_include_system_directories(${library_name}
+  target_include_system_directories(${target_name}
     INTERFACE
     ${args_SYSTEM_INCLUDES}
   )
-  target_find_dependencies(${library_name}
+  target_find_dependencies(${target_name}
     INTERFACE_CONFIG
     ${args_DEPENDENCIES_CONFIG}
 
     INTERFACE
     ${args_DEPENDENCIES}
   )
-  target_link_system_libraries(${library_name}
+  target_link_system_libraries(${target_name}
     INTERFACE
     ${args_LIBRARIES}
   )
@@ -100,7 +100,7 @@ function(add_test_config config_name)
     ${args_COMPILE_FEATURES}
   )
 
-  _Set_config_execute_args(${library_name} "${args_EXECUTE_ARGS}")
+  _Set_config_execute_args(${target_name} "${args_EXECUTE_ARGS}")
 endfunction()
 
 function(_Get_configs_execute_args variable_name)
