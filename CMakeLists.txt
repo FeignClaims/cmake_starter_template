@@ -13,6 +13,20 @@ option(BUILD_FUZZ_TESTING "Enable the fuzz tests" OFF)
 # Include CTest before any tests
 include(CTest)
 
+# Add handy test wrappers
+include(AddTest)
+
+# Common test config
+add_test_config(common
+  DEPENDENCIES_CONFIG
+  ut
+
+  LIBRARIES
+  starter_project_options
+  starter_project_warnings
+  boost-ext-ut::ut
+)
+
 # Add src
 add_subdirectory(starter_app)
 add_subdirectory(starter_header_only_lib)

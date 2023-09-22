@@ -8,7 +8,7 @@
 auto main() -> int {
   using namespace boost::ut;  // NOLINT(*using-namespace*)
 
-  "sort"_test = [] {
+  "sort.pass"_test = [] {
     std::vector<int> vector{1, 3, 0, 4};
 
     should("sort1") = [=] mutable {
