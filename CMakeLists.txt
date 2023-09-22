@@ -13,31 +13,21 @@ option(BUILD_FUZZ_TESTING "Enable the fuzz tests" OFF)
 # Include CTest before any tests
 include(CTest)
 
-# Adding the src
-add_subdirectory(src)
+# Add src
+add_subdirectory(starter_app)
+add_subdirectory(starter_header_only_lib)
+add_subdirectory(starter_lib)
 
-# Adding the tests
-if(BUILD_TESTING)
-  message(STATUS "Building Tests.")
-  add_subdirectory(test)
-endif()
+# Set the startup project for the "play" button in MSVC
+set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT starter_app)
 
-# Adding the fuzzing tests
-if(BUILD_FUZZ_TESTING)
-  message(STATUS "Building Fuzz Tests, using fuzzing sanitizer https://www.llvm.org/docs/LibFuzzer.html")
-  add_subdirectory(fuzz_test)
-endif()
-
-# set the startup project for the "play" button in MSVC
-set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT app)
-
-# Packaging the project
+# Package the project
 # for products, using `package_project(TARGETS app)` to pack the executable should be enough
 package_project(
   TARGETS
-  app
-  lib
-  header_only_lib
+  starter_app
+  starter_lib
+  starter_header_only_lib
   starter_project_options
   starter_project_warnings
 )
