@@ -164,6 +164,7 @@ function(add_library_test library test_name)
   )
   target_link_libraries(${target_name}
     PRIVATE
+    ${prefixed_configs}
     ${library}
   )
 
@@ -180,7 +181,6 @@ function(add_library_test library test_name)
   )
   target_link_system_libraries(${target_name}
     PRIVATE
-    ${prefixed_configs}
     ${args_LIBRARIES}
   )
   target_compile_definitions(${target_name}
