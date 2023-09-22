@@ -48,11 +48,23 @@ RequiresClausePosition: OwnLine
 PointerAlignment: Left
 QualifierAlignment: Custom
 QualifierOrder:
-  ["inline", "static", "constexpr", "type", "restrict", "const", "volatile"]
+  [
+    "friend",
+    "inline",
+    "static",
+    "constexpr",
+    "type",
+    "restrict",
+    "const",
+    "volatile",
+  ]
 ReferenceAlignment: Pointer
 ReflowComments: false
+RemoveParentheses: MultipleParentheses
 RemoveSemicolon: true
 RequiresExpressionIndentation: Keyword
 ShortNamespaceLines: 0
+StatementMacros:
+  - BOOST_HOF_RETURNS
 ---
 

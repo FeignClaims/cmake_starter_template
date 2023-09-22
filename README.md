@@ -11,7 +11,7 @@ This is a template for getting up and running with C++ quickly.
 It requires:
 
 - ccache
-- clang 15+
+- clang 17+
 - cmake 3.25+
 - conan 2.0+
 - cppcheck
