@@ -111,6 +111,20 @@ function(_Set_config_execute_args target_name execute_args)
   set_property(TARGET ${target_name} PROPERTY PROJECT_OPTIONS_EXECUTE_ARGS ${execute_args})
 endfunction()
 
+# add_test_config(<config_name>  # target will be named as `test_config.${config_name}`
+#   [SOURCES <arg1...>]
+#   [INCLUDES <arg1...>]
+#   [SYSTEM_INCLUDES <arg1...>]
+#   [DEPENDENCIES_CONFIG <arg1...>]
+#   [DEPENDENCIES <arg1...>]
+#   [LIBRARIES <arg1...>]
+#   [SYSTEM_LIBRARIES <arg1...>]
+#   [COMPILE_DEFINITIONS <arg1...>]
+#   [COMPILE_OPTIONS <arg1...>]
+#   [COMPILE_FEATURES <arg1...>]
+#   [EXECUTE_ARGS <arg1...>]
+# )
+#
 # Add a library test config called test_config.${config_name}
 function(add_test_config config_name)
   set(options)
@@ -179,6 +193,21 @@ function(_Add_configs_prefix variable_name)
   set(${variable_name} ${value} PARENT_SCOPE)
 endfunction()
 
+# add_library_test(<library> <test_name>
+#   [CONFIGS <arg1...>]  # accepts both `${config_name}` and `test_config.${config_name}`
+#   [SOURCES <arg1...>]
+#   [INCLUDES <arg1...>]
+#   [SYSTEM_INCLUDES <arg1...>]
+#   [DEPENDENCIES_CONFIG <arg1...>]
+#   [DEPENDENCIES <arg1...>]
+#   [LIBRARIES <arg1...>]
+#   [SYSTEM_LIBRARIES <arg1...>]
+#   [COMPILE_DEFINITIONS <arg1...>]
+#   [COMPILE_OPTIONS <arg1...>]
+#   [COMPILE_FEATURES <arg1...>]
+#   [EXECUTE_ARGS <arg1...>]
+# )
+#
 # Add a library test called test.${library}.${test_name}
 function(add_library_test library test_name)
   set(options)
@@ -239,6 +268,11 @@ function(add_library_test library test_name)
   )
 endfunction()
 
+# add_executable_test(<executable> <test_name>
+#   [CONFIGS <arg1...>]  # accepts both `${config_name}` and `test_config.${config_name}`
+#   [EXECUTE_ARGS <arg1...>]
+# )
+#
 # Add an executable test called test.${executable}.${test_name}
 function(add_executable_test executable test_name)
   set(options)
