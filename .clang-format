@@ -60,7 +60,7 @@ QualifierOrder:
   ]
 ReferenceAlignment: Pointer
 ReflowComments: false
-RemoveParentheses: MultipleParentheses
+# RemoveParentheses: MultipleParentheses  # Too many false positive
 RemoveSemicolon: true
 RequiresExpressionIndentation: Keyword
 ShortNamespaceLines: 0
