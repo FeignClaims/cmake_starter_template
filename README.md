@@ -8,6 +8,8 @@
 
 This is a template for getting up and running with C++ quickly.
 
+This repository highly depends on [aminya/project_options](https://github.com/aminya/project_options), which improves the CMake experience a lot.
+
 It requires:
 
 - ccache
@@ -177,5 +179,7 @@ ctest --preset clang-debug --rerun-failed --output-on-failure
 ## More Details
 
 The repository is templated from [cpp-best-practices/gui_starter_template](https://github.com/cpp-best-practices/gui_starter_template). You can learn more there.
+
+This repository highly depends on [aminya/project_options](https://github.com/aminya/project_options), which improves the CMake experience a lot.
 
 For conan 2.0, [here](https://docs.conan.io/2.0/index.html) is the official documentation.
