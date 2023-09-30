@@ -6,9 +6,16 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 # Customize project_options
 include(CustomizedProjectOptions)
 
+# A handy target to generate target dependencies graph
+include(CustomizedGraphViz)
+
 # Options
-option(BUILD_TESTING "Build the testing tree." OFF)
-option(BUILD_FUZZ_TESTING "Enable the fuzz tests" OFF)
+option(BUILD_TESTING "Build the testing tree." ON)
+option(BUILD_FUZZ_TESTING "Enable the fuzz tests" ON)
+
+# workaround: RPATH stuff
+# !!!NOT RECOMMENDED!!! see https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C%2B%2B.md
+include(Rpath)
 
 # Include CTest before any tests
 include(CTest)
@@ -42,6 +49,7 @@ set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT starter_app)
 package_project(
   TARGETS
   starter_app
+  starter_app_library
   starter_lib
   starter_header_only_lib
   starter_project_options
@@ -49,7 +57,7 @@ package_project(
 )
 
 set(CPACK_PACKAGE_FILE_NAME
-  "${CMAKE_PROJECT_NAME}-${CMAKE_PROJECT_VERSION}-${CMAKE_SYSTEM_NAME}-${CMAKE_BUILD_TYPE}-${CMAKE_CXX_COMPILER_ID}-${CMAKE_CXX_COMPILER_VERSION}"
+  "${CMAKE_PROJECT_NAME}-${CMAKE_PROJECT_VERSION}-${GIT_SHORT_SHA}-${CMAKE_SYSTEM_NAME}-${CMAKE_BUILD_TYPE}-${CMAKE_CXX_COMPILER_ID}-${CMAKE_CXX_COMPILER_VERSION}"
 )
 
 include(CPack)

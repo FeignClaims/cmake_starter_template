@@ -1,9 +1,38 @@
 from conan import ConanFile
-from conan.tools.cmake import cmake_layout, CMakeToolchain, CMakeDeps
+from conan.errors import ConanInvalidConfiguration
+from conan.tools.build import check_min_cppstd
+from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain, cmake_layout
+from conan.tools.files import copy, rm, rmdir
+import os
 
 
 class starterRecipe(ConanFile):
-    settings = "os", "compiler", "build_type", "arch"
+    name = "starter"
+    description = "A cmake template using conan"
+    license = "Unlicense"
+    url = "https://github.com/FeignClaims/cmake_starter_template"
+    homepage = "https://github.com/FeignClaims/cmake_starter_template"
+    topics = ("template")
+    package_type = "library"
+    settings = "os", "arch", "compiler", "build_type"
+    version = "0.0.1"
+    options = {
+        "shared": [True, False],
+        "fPIC": [True, False],
+    }
+    default_options = {
+        "shared": False,
+        "fPIC": True,
+    }
+
+    def config_options(self):
+        if self.settings.os == "Windows":
+            del self.options.fPIC
+
+    def configure(self):
+        if self.options.shared:
+            self.options.rm_safe("fPIC")
+        self._strict_options_requirements()
 
     def layout(self):
         # By default, distinguish configuraiotns by compiler name
@@ -16,6 +45,29 @@ class starterRecipe(ConanFile):
         self.requires("ms-gsl/4.0.0")
         self.requires("range-v3/0.12.0")
 
+    @property
+    def _required_options(self):
+        options = []
+        # Usage: options.append(("boost", [("without_graph", False), ("without_test", False)]))
+        return options
+
+    def _strict_options_requirements(self):
+        for requirement, options in self._required_options:
+            for option_name, value in options:
+                setattr(self.options[requirement], f"{option_name}", value)
+
+    def _validate_options_requirements(self):
+        for requirement, options in self._required_options:
+            is_missing_option = not all(self.dependencies[requirement].options.get_safe(
+                f"{option_name}") == value for option_name, value in options)
+            if is_missing_option:
+                raise ConanInvalidConfiguration(
+                    f"{self.ref} requires {requirement} with these options: {options}")
+
+    def validate(self):
+        check_min_cppstd(self, "20")
+        self._validate_options_requirements()
+
     def build_requirements(self):
         self.tool_requires("cmake/[>=3.25 <4.0.0]")
         self.test_requires("boost-ext-ut/1.1.9")
@@ -25,3 +77,29 @@ class starterRecipe(ConanFile):
         toolchain = CMakeToolchain(self)
         toolchain.presets_prefix = ""
         toolchain.generate()
+
+    def build(self):
+        cmake = CMake(self)
+        cmake.configure()
+        cmake.build()
+        if not self.conf.get("tools.build:skip_test", default=False):
+            cmake.test()
+
+    def package(self):
+        copy(self, pattern="LICENSE", dst=os.path.join(self.package_folder, "licenses"), src=self.source_folder)
+        cmake = CMake(self)
+        cmake.install()
+
+        # some files extensions and folders are not allowed. Please, read the FAQs to get informed.
+        rmdir(self, os.path.join(self.package_folder, "lib", "pkgconfig"))
+        rmdir(self, os.path.join(self.package_folder, "lib", "cmake"))
+        rmdir(self, os.path.join(self.package_folder, "share"))
+        rm(self, "*.la", os.path.join(self.package_folder, "lib"))
+        rm(self, "*.pdb", os.path.join(self.package_folder, "lib"))
+        rm(self, "*.pdb", os.path.join(self.package_folder, "bin"))
+
+    def package_info(self):
+        self.cpp_info.libs = ["starter"]
+
+        self.cpp_info.set_property("cmake_file_name", "starter")
+        self.cpp_info.set_property("cmake_target_name", "starter::starter")

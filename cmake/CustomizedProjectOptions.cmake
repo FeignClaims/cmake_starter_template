@@ -10,7 +10,11 @@ set(ENABLE_CONTROL_FLOW_PROTECTION_DEFAULT ON)
 set(ENABLE_ELF_PROTECTION_DEFAULT OFF)
 set(ENABLE_OVERFLOW_PROTECTION_DEFAULT ON)
 set(ENABLE_RUNTIME_SYMBOLS_RESOLUTION_DEFAULT ON)
-set(ENABLE_STACK_PROTECTION_DEFAULT ON)
+if (WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  set(ENABLE_STACK_PROTECTION_DEFAULT OFF)
+else()
+  set(ENABLE_STACK_PROTECTION_DEFAULT ON)
+endif()
 
 dynamic_project_options(
   PREFIX
@@ -50,6 +54,7 @@ dynamic_project_options(
   -Wextra-semi # warn about semicolon after in-class function definition
   -Wfloat-equal # warn on comparing floating point with == or !=
   -Wformat=2 # warn on security issues around functions that format output (ie printf)
+
   # -Wglobal-constructors  # warn on declare global or static variables with dynamic constructors
   -Wimplicit-fallthrough # warn on statements that fallthrough without an explicit annotation
   -Wmisleading-indentation # warn if indentation implies blocks where blocks do not exist
@@ -70,6 +75,7 @@ dynamic_project_options(
   -Wunreachable-code-aggressive # warn if code will never be executed
   -Wunused # warn on anything being unused
   -Wno-gnu-line-marker # avoid the warn on gnu line marker when `--save-temps=obj` enabled
+  -Wno-unused-command-line-argument # disable warn if command line argument unused
   -ftemplate-backtrace-limit=0
   -fconstexpr-backtrace-limit=0
 
@@ -104,6 +110,7 @@ dynamic_project_options(
   -Wundef # warn if an undefined identifier is evaluated in an #if directive
   -Wunused # warn on anything being unused
   -Wuseless-cast # warn if you perform a cast to the same type
+  -Wno-unused-command-line-argument # disable warn if command line argument unused
 
   CPPCHECK_OPTIONS
   --enable=style,performance,warning,portability

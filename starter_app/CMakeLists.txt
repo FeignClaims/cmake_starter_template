@@ -5,7 +5,7 @@
 add_library(starter_app_library)
 target_sources(starter_app_library
   PRIVATE
-  src/fibonacci.cpp
+  src/concat.cpp
 )
 target_include_interface_directories(starter_app_library include) # Includes
 target_link_libraries(starter_app_library

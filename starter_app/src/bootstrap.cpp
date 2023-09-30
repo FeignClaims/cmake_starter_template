@@ -1,7 +1,7 @@
-#include "starter_app/fibonacci.hpp"
+#include "starter_app/concat.hpp"
 
 #include <fmt/core.h>
 
-auto main() -> int {
-  fmt::print("{}\n", starter_app::fibonacci(3));
+auto main() -> int {  // NOLINT(bugprone-exception-escape)
+  fmt::print("{}\n", starter_app::concat("hello", "world"));
 }

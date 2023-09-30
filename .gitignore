@@ -46,7 +46,4 @@ CTestTestfile.cmake
 _deps
 .cache/
 
-# remove workflow for now
-.github/
-
 graphviz/

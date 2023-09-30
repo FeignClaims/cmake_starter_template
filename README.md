@@ -1,5 +1,8 @@
 # cmake_starter_template
 
+[![ci](https://github.com/FeignClaims/cmake_starter_template/actions/workflows/ci.yml/badge.svg)](https://github.com/FeignClaims/cmake_starter_template/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/FeignClaims/cmake_starter_template/graph/badge.svg?token=BQEOMHO4P6)](https://codecov.io/gh/FeignClaims/cmake_starter_template)
+
 :warning: Unfinished!
 
 :warning: Not Documented Well Yet!

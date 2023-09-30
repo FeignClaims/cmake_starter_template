@@ -9,6 +9,7 @@ Checks: "clang-diagnostic-*,\
   -llvmlib*,\
   -llvm-include-order,\
   -llvm-qualified-auto,\
+  -misc-include-cleaner,\
   -zircon*,\
   -google-readability-todo,\
   -readability-qualified-auto,\
