@@ -19,6 +19,7 @@ Diagnostics:
       readability-identifier-length.IgnoredVariableNames: n|ch|_|id|to|t|u|i|j|k
       readability-identifier-length.IgnoredParameterNames: n|ch|_|id|to|t|u|i|j|k
   UnusedIncludes: Strict
+  MissingIncludes: Strict
 Index:
   Background: Build
   StandardLibrary: Yes
