@@ -3,27 +3,31 @@
 [![ci](https://github.com/FeignClaims/cmake_starter_template/actions/workflows/ci.yml/badge.svg)](https://github.com/FeignClaims/cmake_starter_template/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/FeignClaims/cmake_starter_template/graph/badge.svg?token=BQEOMHO4P6)](https://codecov.io/gh/FeignClaims/cmake_starter_template)
 
-:warning: Unfinished!
+> Write your own conan profile and conanfile, then cmake using the generated toochians.
 
-:warning: Not Documented Well Yet!
+:warning: Unfinished for docker images, fuzz testing and packaging using conan!
 
 ## About cmake_starter_template
 
-This is a template for getting up and running with C++ quickly.
+This is a cmake template using conan 2.0 for setting up and running with C++ quickly.
 
 This repository highly depends on [aminya/project_options](https://github.com/aminya/project_options), which improves the CMake experience a lot.
 
+It includes:
+
+- a basic example on how to manage dependencies using conan and use it simply
+- a example github action testing working on Linux/MacOS/Windows
+- examples for testing using [boost-ext/ut](https://github.com/boost-ext/ut)
+
 It requires:
 
-- ccache
-- clang 17+
 - cmake 3.25+
 - conan 2.0+
-- cppcheck
-- doxygen
-- include-what-you-use (IWYU)
-
-For Chinese, you can learn how to install all these with VSCode on Windows/MacOS [here](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/).
+- a C++ compiler that supports C++20.
+- (optional) ccache
+- (optional) clang-tidy
+- (optional) clang-format
+- (optional) cppcheck
 
 ## Getting Started
 
@@ -44,144 +48,16 @@ Now you can clone the project locally and get to work!
 git clone https://github.com/<user>/<your_new_repo>.git
 ```
 
-### Configure
+### Docs
 
-#### Install conan dependencies
-
-Use `conan --help` for help.
-
-To install conan dependencies:
-
-```bash
-conan install . -b missing
-```
-
-Additionally, you can add `-s build_type=[Release|Debug|MinSizeRel|RelWithDebInfo]` to set the build type:
-
-```bash
-conan install . -b missing -s build_type=Release
-```
-
-After this, conan will generate `CMakeUserPresets.json` for cmake.
-
-#### Configure cmake
-
-Use `cmake --help` for help.
-
-List all available configure presets:
-
-```bash
-cmake --list-presets
-```
-
-Choose one to configure (preset `clang` for instance):
-
-```bash
-cmake --preset clang
-```
-
-### Build
-
-#### Build `ALL`
-
-Use `cmake --build` for help.
-
-List all available build presets:
-
-```bash
-cmake --build --list-presets
-```
-
-Choose one to build (preset `clang-debug` for instance):
-
-```bash
-cmake --build --preset clang-debug
-```
-
-#### Choose to build
-
-List all available targets:
-
-```bash
-cmake --build --preset clang-debug -t help
-```
-
-Then build (targets `app` and `test_app` for instance):
-
-```bash
-cmake --build --preset clang-debug -t app test_app
-```
-
-### Install
-
-#### Install without knowing the build directory
-
-> the install prefix defaults to `/usr/local` on UNIX and `C:/Program Files/${PROJECT_NAME}` on Windows
-
-Reconfigure to specify the install prefix if hasn't:
-
-```bash
-cmake --preset clang --install-prefix <directory>
-```
-
-Install:
-
-```bash
-cmake --build --preset clang-debug -t install
-```
-
-#### Install with knowing the build directory
-
-Use `cmake --install` for help.
-
-```bash
-cmake --install <build_dir> [<options>]
-```
-
-### Switch to developer mode
-
-By default, cmake configures the project on user mode. For developers, you can switch to developer mode by:
-
-#### Use `-DENABLE_DEVELOPER_MODE:BOOL=ON`
-
-```bash
-cmake --preset clang -DENABLE_DEVELOPER_MODE:BOOL=ON
-```
-
-#### Use `ccmake` after first configuration
-
-```bash
-cmake --preset clang
-ccmake --preset clang
-```
-
-#### Use `cmake-gui`
-
-### Test
-
-Use `ctest --help` for help.
-
-List all available test presets:
-
-```bash
-ctest --list-presets
-```
-
-Choose one to test (preset `clang-debug` for instance):
-
-```bash
-ctest --preset clang-debug
-```
-
-If fails, run the failed test with coloured output:
-
-```bash
-ctest --preset clang-debug --rerun-failed --output-on-failure
-```
+- [Dependencies Setup](./README_dependencies.md)
+- [Usage](./README_usage.md)
+- [CMake Modules](./README_cmake_modules.md)
+- [Useful References](./README_references.md)
 
 ## More Details
 
-The repository is templated from [cpp-best-practices/gui_starter_template](https://github.com/cpp-best-practices/gui_starter_template). You can learn more there.
+The repository is templated from [cpp-best-practices/gui_starter_template](https://github.com/cpp-best-practices/gui_starter_template), but changed a lot.
 
 This repository highly depends on [aminya/project_options](https://github.com/aminya/project_options), which improves the CMake experience a lot.
 
