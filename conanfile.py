@@ -8,7 +8,7 @@ import os
 
 class starterRecipe(ConanFile):
     name = "starter"
-    description = "A cmake template using conan"
+    description = "A CMake template using Conan 2"
     license = "Unlicense"
     url = "https://github.com/FeignClaims/cmake_starter_template"
     homepage = "https://github.com/FeignClaims/cmake_starter_template"
