@@ -1,6 +1,11 @@
+# - Customization point for project_options
+# This module fetches project_options and sets all customization on project_options
+#
+# Include this module in the main CMakeLists.txt before `project()` (for vcpkg) or right after `project()` to make use
 include_guard()
 
 include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptions.cmake)
+fetch_project_options(https://github.com/aminya/project_options.git v0.32.1)
 
 # compile_commands.json
 set(ENABLE_COMPILE_COMMANDS_SYMLINK_DEFAULT ON)

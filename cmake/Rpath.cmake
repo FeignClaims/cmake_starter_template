@@ -1,3 +1,5 @@
+# - A workaround to correctly resolve installed dylib dependencies on MacOS for now
+# Include this module in the main CMakeLists.txt before adding targets to make use
 include_guard()
 
 include(GNUInstallDirs)
