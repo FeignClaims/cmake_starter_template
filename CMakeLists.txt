@@ -6,9 +6,6 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 # Customize project_options
 include(CustomizedProjectOptions)
 
-# A handy target to generate target dependencies graph
-include(CustomizedGraphViz)
-
 # Options
 option(BUILD_TESTING "Build the testing tree." ON)
 option(BUILD_FUZZ_TESTING "Enable the fuzz tests" ON)
