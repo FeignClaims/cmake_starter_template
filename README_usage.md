@@ -50,6 +50,8 @@ qt/*:tools.cmake.cmaketoolchain:generator=Ninja
 
 # no specifier: same as *
 tools.build:compiler_executables={"c": "/opt/homebrew/opt/llvm/bin/clang", "cpp": "/opt/homebrew/opt/llvm/bin/clang++"}
+
+# see more in https://docs.conan.io/2/reference/config_files/profiles.html#profile-patterns
 ```
 
 </details>
