@@ -39,7 +39,17 @@ cmake/3.27.6
 ninja/1.11.1
 
 [conf]
-tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+# &: influence current package (your project)
+&:tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+
+# qt/*: influence required qt
+qt/*:tools.cmake.cmaketoolchain:generator=Ninja
+
+# *: influence both current package and all depedencies
+*: tools.build:compiler_executables={"c": "/opt/homebrew/opt/llvm/bin/clang", "cpp": "/opt/homebrew/opt/llvm/bin/clang++"}
+
+# no specifier: same as *
+tools.build:compiler_executables={"c": "/opt/homebrew/opt/llvm/bin/clang", "cpp": "/opt/homebrew/opt/llvm/bin/clang++"}
 ```
 
 </details>
