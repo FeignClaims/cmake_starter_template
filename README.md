@@ -16,7 +16,7 @@ This repository highly depends on [aminya/project_options](https://github.com/am
 It includes:
 
 - a basic example on how to manage dependencies using conan and use it simply
-- a example github action testing working on Linux/MacOS/Windows
+- an example github action testing working on Linux/MacOS/Windows
 - examples for testing using [boost-ext/ut](https://github.com/boost-ext/ut)
 
 It requires:
