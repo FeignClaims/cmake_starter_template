@@ -6,7 +6,7 @@ from conan.tools.files import copy, rm, rmdir
 import os
 
 
-class starterRecipe(ConanFile):
+class StarterRecipe(ConanFile):
     name = "starter"
     description = "A CMake template using Conan 2"
     license = "Unlicense"
