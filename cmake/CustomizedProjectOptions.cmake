@@ -59,7 +59,6 @@ dynamic_project_options(
   -Wextra-semi # warn about semicolon after in-class function definition
   -Wfloat-equal # warn on comparing floating point with == or !=
   -Wformat=2 # warn on security issues around functions that format output (ie printf)
-
   # -Wglobal-constructors  # warn on declare global or static variables with dynamic constructors
   -Wimplicit-fallthrough # warn on statements that fallthrough without an explicit annotation
   -Wmisleading-indentation # warn if indentation implies blocks where blocks do not exist
