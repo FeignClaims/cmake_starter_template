@@ -3,6 +3,7 @@ from conan.errors import ConanInvalidConfiguration
 from conan.tools.build import check_min_cppstd
 from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain, cmake_layout
 from conan.tools.files import copy, rm, rmdir
+from conan.tools.scm import Version
 import os
 
 
@@ -46,6 +47,28 @@ class StarterRecipe(ConanFile):
         self.requires("range-v3/0.12.0")
 
     @property
+    def _min_cppstd(self):
+        return 20
+
+    # In case the project requires C++14/17/20/... the minimum compiler version should be listed
+    @property
+    def _compilers_minimum_version(self):
+        return {"msvc": "193",
+                "gcc": "11",
+                "clang": "13",
+                "apple-clang": "14"}
+
+    def _validate_cppstd(self):
+        if self.settings.compiler.get_safe("cppstd"):
+            # Validate the minimum cpp standard supported when installing the package. For C++ projects only
+            check_min_cppstd(self, self._min_cppstd)
+        minimum_version = self._compilers_minimum_version.get(str(self.settings.compiler), False)
+        if minimum_version and Version(self.settings.compiler.version) < minimum_version:
+            raise ConanInvalidConfiguration(
+                f"{self.ref} requires C++{self._min_cppstd}, which your compiler does not support."
+            )
+
+    @property
     def _required_options(self):
         options = []
         # Usage: options.append(("boost", [("without_graph", False), ("without_test", False)]))
@@ -65,7 +88,7 @@ class StarterRecipe(ConanFile):
                     f"{self.ref} requires {requirement} with these options: {options}")
 
     def validate(self):
-        check_min_cppstd(self, "20")
+        self._validate_cppstd()
         self._validate_options_requirements()
 
     def build_requirements(self):
