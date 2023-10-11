@@ -34,21 +34,19 @@ add_test_config(common
 )
 
 # Add src
-add_subdirectory(starter_app)
-add_subdirectory(starter_header_only_lib)
-add_subdirectory(starter_lib)
+add_subdirectory(src)
 
 # Set the startup project for the "play" button in MSVC
-set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT starter_app)
+set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT app)
 
 # Package the project
 # for products, using `package_project(TARGETS app)` to pack the executable should be enough
 package_project(
   TARGETS
-  starter_app
-  starter_app_library
-  starter_lib
-  starter_header_only_lib
+  app
+  app_library
+  lib
+  header_only_lib
   starter_project_options
   starter_project_warnings
 )

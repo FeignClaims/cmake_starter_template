@@ -1,1 +1,0 @@
-add_library_test(starter_header_only_lib to_string CONFIGS common SOURCES to_string.cpp)

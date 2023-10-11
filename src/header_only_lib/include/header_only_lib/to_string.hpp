@@ -1,5 +1,5 @@
-#ifndef STARTER_STARTER_HEADER_ONLY_LIB_SORT_HPP
-#define STARTER_STARTER_HEADER_ONLY_LIB_SORT_HPP
+#ifndef HEADER_ONLY_LIB_SORT_HPP
+#define HEADER_ONLY_LIB_SORT_HPP
 
 #include <ranges>
 #include <string>
@@ -7,7 +7,7 @@
 #include <fmt/core.h>
 #include <fmt/format.h>
 
-namespace starter_header_only_lib {
+namespace header_only_lib {
 /**
  * Format a range's elements to `std::string` which is delimited by `", "`
  * 
@@ -17,6 +17,6 @@ namespace starter_header_only_lib {
 [[nodiscard]] auto to_string(std::ranges::range auto&& range) -> std::string {
   return fmt::format("{}", fmt::join(range, ", "));
 }
-}  // namespace starter_header_only_lib
+}  // namespace header_only_lib
 
 #endif
