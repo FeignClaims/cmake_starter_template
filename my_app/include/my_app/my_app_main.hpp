@@ -1,6 +1,7 @@
 #ifndef MY_APP_MY_APP_MAIN_HPP
 #define MY_APP_MY_APP_MAIN_HPP
 
+#include <string_view>
 #include <vector>
 
 namespace my_app {
