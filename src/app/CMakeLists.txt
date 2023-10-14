@@ -18,7 +18,7 @@ target_link_libraries(app_library
 add_executable(app)
 target_sources(app
   PRIVATE
-  src/bootstrap.cpp # Just for main() function
+  src/main.cpp # Just for main() function
 )
 target_link_libraries(app
   PRIVATE
