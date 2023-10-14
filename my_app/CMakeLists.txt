@@ -37,6 +37,8 @@ target_sources(my_app
 target_link_libraries(my_app
   PRIVATE
   my_app_library
+  starter_project_options
+  starter_project_warnings
 )
 
 # Tests
