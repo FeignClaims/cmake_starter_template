@@ -52,7 +52,7 @@ git clone https://github.com/<user>/<your_new_repo>.git
 
 - [Dependencies Setup](./README_dependencies.md)
 - [Usage](./README_usage.md)
-- [CMake Modules](./README_cmake_modules.md)
+- [File Structure](./README_structure.md)
 - [Useful References](./README_references.md)
 
 ## More Details

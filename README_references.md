@@ -18,3 +18,4 @@
     - [adding packages](https://github.com/conan-io/conan-center-index/tree/master/docs/adding_packages)
     - [package templates](https://github.com/conan-io/conan-center-index/tree/master/docs/package_templates)
   - [Methods Order](https://docs.conan.io/1/reference/commands/creator/create.html#methods-execution-order)
+  - [Promissing future: Adding a folder with conan-center-index clone as a remote](https://github.com/conan-io/conan/pull/13930)
