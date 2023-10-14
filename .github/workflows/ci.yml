@@ -39,13 +39,19 @@ jobs:
           # you can specify the version after `-` like "llvm-13.0.0".
           - llvm
           - gcc-11
+          - msvc
         build_type:
           - Debug
           - Release
-        cmake_generator:
-          - "Ninja Multi-Config"
         cpack_generator:
           - ZIP
+
+        # To exclude a specific job from the matrix (e.g gcc on Windows), you can use this syntax.
+        exclude:
+          - os: ubuntu-22.04
+            compiler: msvc
+          - os: macos-12
+            compiler: msvc
 
         include:
           # Inject gcov_executable variable
@@ -59,41 +65,21 @@ jobs:
             compiler_name: clang
           - compiler: gcc-11
             compiler_name: gcc
-
-          # Add msvc compiler for Windows
-          - os: windows-2022
-            compiler: msvc
-            build_type: Debug
-            cmake_generator: "Visual Studio 17 2022"
-            cpack_generator: ZIP
+          - compiler: msvc
             compiler_name: msvc
-
-          - os: windows-2022
-            compiler: msvc
-            build_type: Release
-            cmake_generator: "Visual Studio 17 2022"
-            cpack_generator: ZIP
-            compiler_name: msvc
-
-          # Choose the corresponding profile
-
-        # To exclude a specific job from the matrix (e.g gcc on Windows), you can use this syntax.
-        # exclude:
-        #   - os: windows-2022
-        #     compiler: gcc
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Cache
-        uses: actions/cache@v3
+      - name: Linux - Maximize build disk space
+        uses: easimon/maximize-build-space@v8
+        if: runner.os == 'Linux'
         with:
-          path: |
-            ${{ env.CONAN_HOME }}
-            ~/.cache/pip
-          key: ${{ runner.os }}-${{ matrix.compiler }}-${{ matrix.build_type }}-${{ hashFiles('./conanfile.py') }}-${{ matrix.cmake_generator }}-${{ hashFiles('**/CMakeLists.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.compiler }}-${{ matrix.build_type }}-${{ hashFiles('./conanfile.py') }}
+          root-reserve-mb: 30720
+          swap-size-mb: 1024
+          remove-android: "true"
+          remove-docker-images: "true"
+          remove-dotnet: "true"
+
+      - uses: actions/checkout@v4
 
       - name: Setup Cpp
         uses: aminya/setup-cpp@v1
@@ -112,6 +98,15 @@ jobs:
           gcovr: true
           opencppcoverage: true
 
+      - name: Cache conan
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ env.CONAN_HOME }}
+          key: conan-cache-${{ runner.os }}-${{ hashFiles('conanfile.py') }}
+          restore-keys: |
+            conan-cache-${{ runner.os }}-
+
       - name: Install and config conan
         run: |
           pip3 install conan
@@ -125,7 +120,7 @@ jobs:
         id: conan
         shell: bash
         run: |
-          echo "args=-pr:h '${{ matrix.os }}-${{ matrix.compiler_name }}-x86_64' -pr:b '${{ matrix.os }}-${{ matrix.compiler_name }}-x86_64' -c 'tools.cmake.cmaketoolchain:generator=${{ matrix.cmake_generator }}' -s 'build_type=${{ matrix.build_type }}' -b missing" >> "$GITHUB_OUTPUT"
+          echo "args=-pr:h '${{ matrix.os }}-${{ matrix.compiler_name }}-x86_64' -pr:b '${{ matrix.os }}-${{ matrix.compiler_name }}-x86_64' -s 'build_type=${{ matrix.build_type }}' -b missing" >> "$GITHUB_OUTPUT"
 
       - name: Install conan packages
         run: |
