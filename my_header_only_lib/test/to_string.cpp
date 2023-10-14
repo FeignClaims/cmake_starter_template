@@ -1,4 +1,4 @@
-#include "header_only_lib/to_string.hpp"
+#include "my_header_only_lib/to_string.hpp"
 
 #include <vector>
 
@@ -10,6 +10,6 @@ auto main() -> int {          // NOLINT(bugprone-exception-escape)
   "to_string"_test = []() {
     std::vector<int> const vec{1, 2, 3, 4};
 
-    expect(header_only_lib::to_string(vec) == "1, 2, 3, 4");
+    expect(my_header_only_lib::to_string(vec) == "1, 2, 3, 4");
   };
 }
