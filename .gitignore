@@ -11,10 +11,9 @@ CMakeUserPresets.json
 # IDE files
 .vs/
 .idea/
-!.vscode/settings.json
+.vscode/
 !.vscode/tasks.json
 !.vscode/launch.json
-!.vscode/extensions.json
 *.swp
 *~
 _ReSharper*
