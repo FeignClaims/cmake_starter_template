@@ -129,7 +129,7 @@ jobs:
       - name: Clean unused conan caches
         run: |
           conan clean --force
-          conan cache clean -c
+          conan cache clean
 
       - name: Configure cmake
         run: |
