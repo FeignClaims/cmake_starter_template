@@ -125,6 +125,11 @@ jobs:
       - name: Install conan packages
         run: |
           conan install . ${{ steps.conan.outputs.args }}
+      
+      - name: Clean unused conan caches
+        run: |
+          conan clean --force
+          conan cache clean -c
 
       - name: Configure cmake
         run: |
