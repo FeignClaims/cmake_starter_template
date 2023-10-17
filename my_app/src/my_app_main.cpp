@@ -5,13 +5,11 @@
 #include <exception>
 #include <iostream>
 #include <iterator>
-#include <string_view>
-#include <vector>
 
 #include <fmt/core.h>
 
 namespace my_app {
-[[nodiscard]] auto my_app_main([[maybe_unused]] std::vector<std::string_view> const& args) noexcept -> int {
+[[nodiscard]] auto my_app_main(/*std::vector<std::string_view> const& args*/) noexcept -> int {
   try {
     fmt::print("{}\n", my_app::concat("hello", "world"));
   } catch (std::exception& exception) {
