@@ -1,23 +1,6 @@
 Diagnostics:
-  ClangTidy:
-    Add: ["*"]
-    Remove:
-      [
-        abseil*,
-        altera*,
-        cert-dcl21-cpp,
-        fuchsia*,
-        llvmlib*,
-        llvm-include-order,
-        llvm-qualified-auto,
-        zircon*,
-        google-readability-todo,
-        readability-qualified-auto,
-        readability-static-accessed-through-instance,
-      ]
-    CheckOptions:
-      readability-identifier-length.IgnoredVariableNames: n|ch|_|id|to|t|u|i|j|k
-      readability-identifier-length.IgnoredParameterNames: n|ch|_|id|to|t|u|i|j|k
+  Suppress: ["type_unsupported"]
+  # ClangTidy: See file `.clang-tidy`
   UnusedIncludes: Strict
   # MissingIncludes: Strict  # Too many false positive
 Index:
