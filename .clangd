@@ -13,3 +13,10 @@ InlayHints:
   Designators: Yes
 Hover:
   ShowAKA: Yes
+
+# ---
+# If:
+#   PathMatch: [cpp98/.*]
+# Diagnostics:
+#   ClangTidy:
+#     Remove: ["*-owning-memory", "*-special-member-functions", modernize*]
