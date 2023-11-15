@@ -7,8 +7,8 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 include(CustomizedProjectOptions)
 
 # Options
-option(BUILD_TESTING "Build the testing tree." ON)
-option(BUILD_FUZZ_TESTING "Enable the fuzz tests" ON)
+option(BUILD_STARTER_TESTING "Build the testing tree." ON)
+option(BUILD_STARTER_FUZZ_TESTING "Enable the fuzz tests" ON)
 
 # workaround: RPATH stuff
 # !!!NOT RECOMMENDED!!! see https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C%2B%2B.md
