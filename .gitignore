@@ -11,7 +11,7 @@ CMakeUserPresets.json
 # IDE files
 .vs/
 .idea/
-.vscode/
+.vscode/*
 !.vscode/tasks.json
 !.vscode/launch.json
 *.swp
