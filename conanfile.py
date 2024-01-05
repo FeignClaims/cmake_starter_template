@@ -42,7 +42,7 @@ class StarterRecipe(ConanFile):
         cmake_layout(self)
 
     def requirements(self):
-        self.requires("fmt/10.1.1")
+        self.requires("fmt/10.2.1")
         self.requires("ms-gsl/4.0.0")
         self.requires("range-v3/0.12.0")
 
@@ -93,7 +93,7 @@ class StarterRecipe(ConanFile):
 
     def build_requirements(self):
         self.tool_requires("cmake/[>=3.25 <4.0.0]")
-        self.test_requires("boost-ext-ut/1.1.9")
+        self.test_requires("boost-ext-ut/2.0.1")
 
     def generate(self):
         CMakeDeps(self).generate()
