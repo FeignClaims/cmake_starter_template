@@ -5,7 +5,7 @@
 include_guard()
 
 include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptions.cmake)
-fetch_project_options(https://github.com/aminya/project_options.git v0.32.1)
+fetch_project_options(https://github.com/aminya/project_options.git v0.34.0)
 
 # compile_commands.json
 set(ENABLE_COMPILE_COMMANDS_SYMLINK_DEFAULT ON)
