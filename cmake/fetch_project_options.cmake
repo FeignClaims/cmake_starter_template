@@ -1,7 +1,5 @@
 # - A macro that fetches project_options
-# This module provides a macro that fetches project_options from the specified repository and tag
-#
-# Projects should include `CustomizedProjectOptions` instead of including this one directly
+# This module fetches project_options from the specified repository and tag
 #
 # fetch_project_options(<git_repository>  <git_tag>)
 include_guard()
@@ -17,3 +15,5 @@ macro(fetch_project_options git_repository git_tag)
   include(${_project_options_SOURCE_DIR}/Index.cmake)
   include(${_project_options_SOURCE_DIR}/src/DynamicProjectOptions.cmake)
 endmacro()
+
+fetch_project_options(https://github.com/aminya/project_options.git v0.34.0)

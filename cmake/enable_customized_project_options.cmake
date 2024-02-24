@@ -1,11 +1,12 @@
 # - Customization point for project_options
-# This module fetches project_options and sets all customization on project_options
+# This module sets all customization on dynamic_project_options
 #
-# Include this module in the main CMakeLists.txt before `project()` (for vcpkg) or right after `project()` to make use
+# Include this module right after `project()` to make use
+#
+# If conan2 or vcpkg is requried, include(fetch_project_options) separately and invoke `run_conan2()` or `run_vcpkg()`
 include_guard()
 
-include(${CMAKE_CURRENT_LIST_DIR}/ProjectOptions.cmake)
-fetch_project_options(https://github.com/aminya/project_options.git v0.34.0)
+include(${CMAKE_CURRENT_LIST_DIR}/fetch_project_options.cmake)
 
 # compile_commands.json
 set(ENABLE_COMPILE_COMMANDS_SYMLINK_DEFAULT ON)

@@ -4,7 +4,7 @@ project(starter VERSION 0.0.1 LANGUAGES CXX)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 # Customize project_options
-include(CustomizedProjectOptions)
+include(enable_customized_project_options)
 
 # Options
 option(BUILD_STARTER_TESTING "Build the testing tree." ON)
@@ -12,13 +12,13 @@ option(BUILD_STARTER_FUZZ_TESTING "Enable the fuzz tests" ON)
 
 # workaround: RPATH stuff
 # !!!NOT RECOMMENDED!!! see https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C%2B%2B.md
-include(Rpath)
+include(rpath)
 
 # Include CTest before any tests
 include(CTest)
 
 # Add handy test wrappers
-include(AddTest)
+include(add_test)
 
 # Common test config
 add_test_config(common
