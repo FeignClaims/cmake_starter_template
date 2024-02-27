@@ -22,6 +22,10 @@ else()
   set(ENABLE_STACK_PROTECTION_DEFAULT ON)
 endif()
 
+# optimization
+set(ENABLE_INTERPROCEDURAL_OPTIMIZATION ON)
+set(ENABLE_NATIVE_OPTIMIZATION_DEFAULT ON)
+
 dynamic_project_options(
   PREFIX
   "starter" # set a prefix in case this project is used as a subproject
