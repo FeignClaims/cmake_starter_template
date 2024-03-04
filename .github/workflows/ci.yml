@@ -88,6 +88,7 @@ jobs:
           vcvarsall: ${{ contains(matrix.os, 'windows')}}
 
           cmake: true
+          conan: 2.1.0
           ninja: true
           ccache: true
           python: true
@@ -109,7 +110,6 @@ jobs:
 
       - name: Install and config conan
         run: |
-          pip3 install conan
           conan config install ./conan
 
       - name: Cleanup conan system packages (they are not properly cached)
