@@ -96,7 +96,7 @@ jobs:
           cppcheck: true
           clangtidy: true
 
-          gcovr: true
+          gcovr: 7.2
           opencppcoverage: true
 
       - name: Cache conan
@@ -125,7 +125,7 @@ jobs:
       - name: Install conan packages
         run: |
           conan install . ${{ steps.conan.outputs.args }}
-      
+
       - name: Clean unused conan caches
         run: |
           conan clean --force
