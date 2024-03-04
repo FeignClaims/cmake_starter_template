@@ -38,7 +38,7 @@ jobs:
         compiler:
           # you can specify the version after `-` like "llvm-13.0.0".
           - llvm
-          - gcc-11
+          - gcc-13
           - msvc
         build_type:
           - Debug
@@ -57,13 +57,13 @@ jobs:
           # Inject gcov_executable variable
           - compiler: llvm
             gcov_executable: "llvm-cov gcov"
-          - compiler: gcc-11
-            gcov_executable: gcov-11
+          - compiler: gcc-13
+            gcov_executable: gcov-13
 
           # Inject actual compiler name
           - compiler: llvm
             compiler_name: clang
-          - compiler: gcc-11
+          - compiler: gcc-13
             compiler_name: gcc
           - compiler: msvc
             compiler_name: msvc
