@@ -1,11 +1,7 @@
 #include "my_app/concat.hpp"
 
-#include <boost/ut.hpp>
+#include <catch2/catch_all.hpp>
 
-auto main() -> int {          // NOLINT(bugprone-exception-escape)
-  using namespace boost::ut;  // NOLINT(*using-namespace*)
-
-  "concat"_test = []() {
-    expect(my_app::concat("h", "ello") == "hello");
-  };
+TEST_CASE("[my_app::concat] pass") {
+  REQUIRE(my_app::concat("h", "ello") == "hello");
 }

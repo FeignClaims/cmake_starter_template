@@ -23,14 +23,17 @@ include(add_test)
 # Common test config
 add_test_config(common
   DEPENDENCIES_CONFIG
-  ut
+  Catch2
 
   LIBRARIES
   starter_project_options
   starter_project_warnings
 
   SYSTEM_LIBRARIES
-  boost-ext-ut::ut
+  Catch2::Catch2WithMain
+
+  EXECUTE_ARGS
+  --reporter xml
 )
 
 # Add src

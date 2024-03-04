@@ -2,14 +2,9 @@
 
 #include <vector>
 
-#include <boost/ut.hpp>
+#include <catch2/catch_all.hpp>
 
-auto main() -> int {          // NOLINT(bugprone-exception-escape)
-  using namespace boost::ut;  // NOLINT(*using-namespace*)
-
-  "to_string"_test = []() {
-    std::vector<int> const vec{1, 2, 3, 4};
-
-    expect(my_header_only_lib::to_string(vec) == "1, 2, 3, 4");
-  };
+TEST_CASE("[my_header_only_lib::to_string] pass") {
+  std::vector<int> const vec{1, 2, 3, 4};
+  REQUIRE(my_header_only_lib::to_string(vec) == "1, 2, 3, 4");
 }
