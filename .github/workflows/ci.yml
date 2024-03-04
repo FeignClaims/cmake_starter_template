@@ -134,7 +134,7 @@ jobs:
       # FIXME: Solve annotated_string mismatch in Windows to enable developer mode totally
       - name: Configure cmake
         run: |
-          cmake --preset ${{ matrix.compiler_name }} -D ENABLE_DEVELOPER_MODE:BOOL=${{ !(matrix.compiler_name != 'clang' && runner.os == 'Windows') }} -D OPT_ENABLE_COVERAGE:BOOL=${{ matrix.build_type == 'Debug' }} -D GIT_SHA:STRING=${{ github.sha }}
+          cmake --preset ${{ matrix.compiler_name }} ${{ matrix.compiler_name == 'msvc' && '-A x64 -T v143' || '' }} -D ENABLE_DEVELOPER_MODE:BOOL=${{ !(matrix.compiler_name != 'clang' && runner.os == 'Windows') }} -D OPT_ENABLE_COVERAGE:BOOL=${{ matrix.build_type == 'Debug' }} -D GIT_SHA:STRING=${{ github.sha }}
 
       - name: Build and test
         run: |

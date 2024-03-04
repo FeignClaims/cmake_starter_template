@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.25)
-project(starter VERSION 0.0.1 LANGUAGES CXX)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+include(fetch_project_options)
+
+project(starter VERSION 0.0.1 LANGUAGES CXX)
 
 # Customize project_options
 include(enable_customized_project_options)
