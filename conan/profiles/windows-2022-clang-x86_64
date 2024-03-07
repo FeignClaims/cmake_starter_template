@@ -6,7 +6,7 @@ compiler.cppstd=20
 # compiler.runtime=dynamic
 # compiler.runtime_version=v143
 compiler.libcxx=libc++
-compiler.version=16
+compiler.version=17
 os=Windows
 
 [conf]
