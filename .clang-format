@@ -2,6 +2,8 @@ BasedOnStyle: Google
 ---
 Language: Cpp
 # AlignArrayOfStructures: Right  # Too many false positive
+AllowBreakBeforeNoexceptSpecifier: Always
+AllowShortCompoundRequirementOnASingleLine: true
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortLambdasOnASingleLine: Inline
 AlignConsecutiveAssignments:
@@ -12,6 +14,7 @@ AlignConsecutiveBitFields: Consecutive
 AlignConsecutiveMacros: Consecutive
 AlignEscapedNewlines: Right
 AlignOperands: Align
+BreakAdjacentStringLiterals: false
 BreakAfterAttributes: Leave
 BreakBeforeBinaryOperators: All
 BreakBeforeInlineASMColon: OnlyMultiline

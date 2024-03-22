@@ -1,22 +1,27 @@
 Diagnostics:
   Suppress: ["type_unsupported"]
-  # ClangTidy: See file `.clang-tidy`
+  ClangTidy:
+    # ClangTidy: See checks in file `.clang-tidy`
+    FastCheckFilter: Strict # Run only checks measured to be fast, https://clangd.llvm.org/config#fastcheckfilter
   UnusedIncludes: Strict
-  # MissingIncludes: Strict  # Too many false positive
+  # MissingIncludes: Strict # Too many false positive
 Index:
   Background: Build
   StandardLibrary: Yes
 InlayHints:
   Enabled: Yes
-  ParameterNames: Yes
+  BlockEnd: Yes
   DeducedTypes: Yes
   Designators: Yes
+  ParameterNames: Yes
+  TypeNameLimit: 24
 Hover:
   ShowAKA: Yes
 
+# Example on partly configuring some folder/files
 # ---
 # If:
-#   PathMatch: [cpp98/.*]
+#   PathMatch: [test_98/.*]
 # Diagnostics:
-#   ClangTidy:
-#     Remove: ["*-owning-memory", "*-special-member-functions", modernize*]
+#  ClangTidy:
+#    Remove: ["*-owning-memory", "*-special-member-functions", modernize*]
