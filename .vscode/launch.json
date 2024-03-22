@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "LLDB: Debug current cmake target",
+      "name": "LLDB: debug the active target",
       "type": "lldb",
       "request": "launch",
       // Resolved by CMake Tools:
@@ -20,7 +20,7 @@
       }
     },
     {
-      "name": "CMake: Debug configuration",
+      "name": "CMake: debug configuration",
       "type": "cmake",
       "request": "launch",
       "cmakeDebugType": "configure",
@@ -28,7 +28,7 @@
       "configureAll": false
     },
     {
-      "name": "CMake: Clean and debug configuration",
+      "name": "CMake: clean and debug configuration",
       "type": "cmake",
       "request": "launch",
       "cmakeDebugType": "configure",
